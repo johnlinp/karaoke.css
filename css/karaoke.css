@@ -1,0 +1,41 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+.screen {
+	margin: 0 auto;
+	position: relative;
+	max-width: 800px;
+	height: 100%;
+}
+
+.lyric {
+	font-size: 50px;
+	position: absolute;
+}
+
+.lyric-left {
+	left: 70px;
+	bottom: 160px;
+}
+
+.lyric-right {
+	right: 70px;
+	bottom: 50px;
+}
+
+.lyric-top {
+	color: blue;
+	z-index: 1;
+}
+
+.lyric-bottom {
+	color: gray;
+	z-index: 0;
+}
+
+.lyric-top.lyric-singing {
+	clip-path: url(../index.html#clipping);
+}
