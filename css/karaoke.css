@@ -1,41 +1,46 @@
-html, body {
-	height: 100%;
-	margin: 0;
-	overflow: hidden;
+.text--transparent {
+  fill: transparent;
 }
 
-.screen {
-	margin: 0 auto;
-	position: relative;
-	max-width: 800px;
-	height: 100%;
+.anim-shape {
+  -webkit-transform-origin: 0x 150px;
+  transform-origin: 0x 150px;
+  -webkit-transform: scale(0, 1) translate(0, 0);
+  transform: scale(0, 1) translate(0, 0);
+  -webkit-animation: moving-panel 3s forwards;
+  animation: moving-panel 3s forwards;
 }
 
-.lyric {
-	font-size: 50px;
-	position: absolute;
+.colortext .anim-shape:nth-child(1) {
+    fill: #0E1826;
 }
 
-.lyric-left {
-	left: 70px;
-	bottom: 160px;
+.anim-shape--shadow {
+  fill: #000;
+  fill-opacity: .2;
 }
 
-.lyric-right {
-	right: 70px;
-	bottom: 50px;
+@-webkit-keyframes moving-panel {
+  100% {
+    -webkit-transform: scale(1, 1) translate(20px, 0);
+    transform: scale(1, 1) translate(20px, 0);
+  }
+}
+@keyframes moving-panel {
+  100% {
+    -webkit-transform: scale(1, 1) translate(20px, 0);
+    transform: scale(1, 1) translate(20px, 0);
+  }
 }
 
-.lyric-top {
-	color: blue;
-	z-index: 1;
+.content {
+  font: 2.5em/1  'Open Sans', Impact;
 }
 
-.lyric-bottom {
-	color: gray;
-	z-index: 0;
+svg {
+  width: 90%;
+  margin: 0 auto 50px;
+  display: block;
+  text-transform: uppercase;
 }
 
-.lyric-top.lyric-singing {
-	clip-path: url(../index.html#clipping);
-}

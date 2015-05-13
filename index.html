@@ -9,18 +9,25 @@
 	</head>
 
 	<body>
-		<div class="screen">
-			<div class="lyric lyric-left lyric-top">一起去旅行</div>
-			<div class="lyric lyric-left lyric-bottom">一起去旅行</div>
-			<div class="lyric lyric-right lyric-top lyric-singing">妳說好嗎</div>
-			<div class="lyric lyric-right lyric-bottom">妳說好嗎</div>
-		</div>
+		<div class="content">
+			<svg viewBox="0 0 600 300">
+				<clippath id="cp-text">
+					<text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">
+						一起去旅行
+					</text>
+				</clippath>
 
-		<svg width="0" height="0">
-			<clipPath id="clipping">
-				<rect width="70px" height="80px"></rect>
-			</clipPath>
-		</svg>
+				<g clip-path="url(#cp-text)" class="shadow">
+					<rect width="100%" height="100%" class="anim-shape--shadow"></rect>
+				</g>
+
+				<g clip-path="url(#cp-text)" class="colortext">
+					<rect width="100%" height="100%" class="anim-shape"></rect>
+				</g>
+
+				<use class="text--transparent"></use>
+			</svg>
+		</div>
 
 		<script src="js/karaoke.js"></script>
 	</body>
