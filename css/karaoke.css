@@ -1,46 +1,46 @@
-.text--transparent {
-  fill: transparent;
-}
-
-.anim-shape {
-  -webkit-transform-origin: 0x 150px;
-  transform-origin: 0x 150px;
-  -webkit-transform: scale(0, 1) translate(0, 0);
-  transform: scale(0, 1) translate(0, 0);
-  -webkit-animation: moving-panel 3s forwards;
-  animation: moving-panel 3s forwards;
-}
-
-.colortext .anim-shape:nth-child(1) {
-    fill: #0E1826;
-}
-
-.anim-shape--shadow {
-  fill: #000;
-  fill-opacity: .2;
-}
-
-@-webkit-keyframes moving-panel {
-  100% {
-    -webkit-transform: scale(1, 1) translate(20px, 0);
-    transform: scale(1, 1) translate(20px, 0);
-  }
-}
-@keyframes moving-panel {
-  100% {
-    -webkit-transform: scale(1, 1) translate(20px, 0);
-    transform: scale(1, 1) translate(20px, 0);
-  }
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
 }
 
 .content {
-  font: 2.5em/1  'Open Sans', Impact;
+	height: 100%;
+	font: 'Open Sans';
+	font-size: 3em;
 }
 
-svg {
-  width: 90%;
-  margin: 0 auto 50px;
-  display: block;
-  text-transform: uppercase;
+.screen {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto 50px;
+	display: block;
+}
+
+.shape {
+	-webkit-transform: scale(0, 1) translate(0, 0);
+	transform: scale(0, 1) translate(0, 0);
+	-webkit-animation: moving-panel 3s forwards;
+	animation: moving-panel 3s forwards;
+}
+
+.shape {
+	fill: #34495e;
+}
+
+.shadow {
+	fill: #000000;
+	fill-opacity: .4;
+}
+
+@-webkit-keyframes moving-panel {
+	100% {
+		-webkit-transform: scale(1, 1) translate(0, 0);
+	}
+}
+@keyframes moving-panel {
+	100% {
+		transform: scale(1, 1) translate(0, 0);
+	}
 }
 
