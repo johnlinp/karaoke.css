@@ -7,25 +7,26 @@ html, body {
 .content {
 	height: 100%;
 	font: 'Open Sans';
-	font-size: 3em;
+	font-size: 60px;
 }
 
 .screen {
-	width: 80%;
+	width: 1200px;
 	height: 100%;
 	margin: 0 auto 50px;
 	display: block;
 }
 
-.shape {
-	-webkit-transform: scale(0, 1) translate(0, 0);
-	transform: scale(0, 1) translate(0, 0);
-	-webkit-animation: moving-panel 3s forwards;
-	animation: moving-panel 3s forwards;
+.shape-boy {
+	fill: #34495e;
 }
 
-.shape {
-	fill: #34495e;
+.shape-girl {
+	fill: #c0392b;
+}
+
+.shape-both {
+	fill: #27ae60;
 }
 
 .shadow {
@@ -33,14 +34,143 @@ html, body {
 	fill-opacity: .4;
 }
 
-@-webkit-keyframes moving-panel {
+.shape-move-1 {
+	-webkit-transform: translateX(-1200px);
+	transform: translateX(-1200px);
+	-webkit-animation: moving-panel-1 5s forwards;
+	animation: moving-panel-1 5s forwards;
+}
+
+.shape-move-2 {
+	-webkit-transform: translateX(-1200px);
+	transform: translateX(-1200px);
+	-webkit-animation: moving-panel-2 5s forwards;
+	animation: moving-panel-2 5s forwards;
+	-webkit-animation-delay: 5s;
+	animation-delay: 5s;
+}
+
+@-webkit-keyframes moving-panel-1 {
+	0% {
+		-webkit-transform: translateX(-1100px);
+	}
+	12.5% {
+		-webkit-transform: translateX(-1040px);
+	}
+	18.75% {
+		-webkit-transform: translateX(-1040px);
+	}
+	31.25% {
+		-webkit-transform: translateX(-980px);
+	}
+	37.5% {
+		-webkit-transform: translateX(-980px);
+	}
+	43.75% {
+		-webkit-transform: translateX(-920px);
+	}
+	50% {
+		-webkit-transform: translateX(-920px);
+	}
+	62.5% {
+		-webkit-transform: translateX(-860px);
+	}
+	68.75% {
+		-webkit-transform: translateX(-860px);
+	}
+	81.25% {
+		-webkit-transform: translateX(-800px);
+	}
 	100% {
-		-webkit-transform: scale(1, 1) translate(0, 0);
+		-webkit-transform: translateX(-800px);
 	}
 }
-@keyframes moving-panel {
+@keyframes moving-panel-1 {
+	0% {
+		transform: translateX(-1100px);
+	}
+	12.5% {
+		transform: translateX(-1040px);
+	}
+	18.75% {
+		transform: translateX(-1040px);
+	}
+	31.25% {
+		transform: translateX(-980px);
+	}
+	37.5% {
+		transform: translateX(-980px);
+	}
+	43.75% {
+		transform: translateX(-920px);
+	}
+	50% {
+		transform: translateX(-920px);
+	}
+	62.5% {
+		transform: translateX(-860px);
+	}
+	68.75% {
+		transform: translateX(-860px);
+	}
+	81.25% {
+		transform: translateX(-800px);
+	}
 	100% {
-		transform: scale(1, 1) translate(0, 0);
+		transform: translateX(-800px);
+	}
+}
+
+@-webkit-keyframes moving-panel-2 {
+	0% {
+		-webkit-transform: translateX(-340px);
+	}
+	12.5% {
+		-webkit-transform: translateX(-280px);
+	}
+	18.75% {
+		-webkit-transform: translateX(-280px);
+	}
+	31.25% {
+		-webkit-transform: translateX(-220px);
+	}
+	37.5% {
+		-webkit-transform: translateX(-220px);
+	}
+	43.75% {
+		-webkit-transform: translateX(-160px);
+	}
+	46.875% {
+		-webkit-transform: translateX(-100px);
+	}
+	100% {
+		-webkit-transform: translateX(-100px);
+	}
+}
+@keyframes moving-panel-2 {
+	0% {
+		transform: translateX(-340px);
+	}
+	12.5% {
+		transform: translateX(-280px);
+	}
+	18.75% {
+		transform: translateX(-280px);
+	}
+	31.25% {
+		transform: translateX(-220px);
+	}
+	37.5% {
+		transform: translateX(-220px);
+	}
+	43.75% {
+		transform: translateX(-160px);
+	}
+	46.875% {
+		transform: translateX(-100px);
+	}
+	100% {
+		transform: translateX(-100px);
 	}
 }
 
