@@ -34,86 +34,92 @@ html, body {
 	fill-opacity: .4;
 }
 
-.shape-move-1 {
-	-webkit-transform: translateX(-1200px);
+.shadow-1 {
 	transform: translateX(-1200px);
-	-webkit-animation: moving-panel-1 5s forwards;
-	animation: moving-panel-1 5s forwards;
+	animation: shadow-show 6s;
+	animation-delay: 1s;
+}
+
+.shadow-2 {
+	transform: translateX(-1200px);
+	animation: shadow-show 10s;
+	animation-delay: 1s;
+}
+
+.shadow-3 {
+	transform: translateX(-1200px);
+	animation: shadow-show 7s;
+	animation-delay: 8s;
+}
+
+.shadow-4 {
+	transform: translateX(-1200px);
+	animation: shadow-show 7s;
+	animation-delay: 12s;
+}
+
+@keyframes shadow-show {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.shape-move-1 {
+	transform: translateX(-1200px);
+	animation: lyric-run-1 5s;
+	animation-delay: 3s;
 }
 
 .shape-move-2 {
-	-webkit-transform: translateX(-1200px);
 	transform: translateX(-1200px);
-	-webkit-animation: moving-panel-2 5s forwards;
-	animation: moving-panel-2 5s forwards;
-	-webkit-animation-delay: 5s;
-	animation-delay: 5s;
+	animation: lyric-run-2 5s;
+	animation-delay: 7s;
 }
 
-@-webkit-keyframes moving-panel-1 {
-	0% {
-		-webkit-transform: translateX(-1100px);
-	}
-	12.5% {
-		-webkit-transform: translateX(-1040px);
-	}
-	18.75% {
-		-webkit-transform: translateX(-1040px);
-	}
-	31.25% {
-		-webkit-transform: translateX(-980px);
-	}
-	37.5% {
-		-webkit-transform: translateX(-980px);
-	}
-	43.75% {
-		-webkit-transform: translateX(-920px);
-	}
-	50% {
-		-webkit-transform: translateX(-920px);
-	}
-	62.5% {
-		-webkit-transform: translateX(-860px);
-	}
-	68.75% {
-		-webkit-transform: translateX(-860px);
-	}
-	81.25% {
-		-webkit-transform: translateX(-800px);
-	}
-	100% {
-		-webkit-transform: translateX(-800px);
-	}
+.shape-move-3 {
+	transform: translateX(-1200px);
+	animation: lyric-run-1 5s;
+	animation-delay: 11s;
 }
-@keyframes moving-panel-1 {
+
+.shape-move-4 {
+	transform: translateX(-1200px);
+	animation: lyric-run-2 5s;
+	animation-delay: 15s;
+}
+
+@keyframes lyric-run-1 {
 	0% {
 		transform: translateX(-1100px);
 	}
-	12.5% {
+	10% {
 		transform: translateX(-1040px);
 	}
-	18.75% {
+	15% {
 		transform: translateX(-1040px);
 	}
-	31.25% {
+	25% {
 		transform: translateX(-980px);
 	}
-	37.5% {
+	30% {
 		transform: translateX(-980px);
 	}
-	43.75% {
+	35% {
+		transform: translateX(-920px);
+	}
+	40% {
 		transform: translateX(-920px);
 	}
 	50% {
-		transform: translateX(-920px);
-	}
-	62.5% {
 		transform: translateX(-860px);
 	}
-	68.75% {
+	55% {
 		transform: translateX(-860px);
 	}
-	81.25% {
+	65% {
 		transform: translateX(-800px);
 	}
 	100% {
@@ -121,52 +127,89 @@ html, body {
 	}
 }
 
-@-webkit-keyframes moving-panel-2 {
-	0% {
-		-webkit-transform: translateX(-340px);
-	}
-	12.5% {
-		-webkit-transform: translateX(-280px);
-	}
-	18.75% {
-		-webkit-transform: translateX(-280px);
-	}
-	31.25% {
-		-webkit-transform: translateX(-220px);
-	}
-	37.5% {
-		-webkit-transform: translateX(-220px);
-	}
-	43.75% {
-		-webkit-transform: translateX(-160px);
-	}
-	46.875% {
-		-webkit-transform: translateX(-100px);
-	}
-	100% {
-		-webkit-transform: translateX(-100px);
-	}
-}
-@keyframes moving-panel-2 {
+@keyframes lyric-run-2 {
 	0% {
 		transform: translateX(-340px);
 	}
-	12.5% {
+	10% {
 		transform: translateX(-280px);
 	}
-	18.75% {
+	15% {
 		transform: translateX(-280px);
 	}
-	31.25% {
+	25% {
 		transform: translateX(-220px);
 	}
-	37.5% {
+	30% {
 		transform: translateX(-220px);
 	}
-	43.75% {
+	35% {
 		transform: translateX(-160px);
 	}
-	46.875% {
+	37.5% {
+		transform: translateX(-100px);
+	}
+	100% {
+		transform: translateX(-100px);
+	}
+}
+
+@keyframes lyric-run-3 {
+	0% {
+		transform: translateX(-1100px);
+	}
+	10% {
+		transform: translateX(-1040px);
+	}
+	15% {
+		transform: translateX(-1040px);
+	}
+	25% {
+		transform: translateX(-980px);
+	}
+	30% {
+		transform: translateX(-980px);
+	}
+	35% {
+		transform: translateX(-920px);
+	}
+	40% {
+		transform: translateX(-920px);
+	}
+	50% {
+		transform: translateX(-860px);
+	}
+	55% {
+		transform: translateX(-860px);
+	}
+	65% {
+		transform: translateX(-800px);
+	}
+	100% {
+		transform: translateX(-800px);
+	}
+}
+
+@keyframes lyric-run-4 {
+	0% {
+		transform: translateX(-340px);
+	}
+	10% {
+		transform: translateX(-280px);
+	}
+	15% {
+		transform: translateX(-280px);
+	}
+	25% {
+		transform: translateX(-220px);
+	}
+	30% {
+		transform: translateX(-220px);
+	}
+	35% {
+		transform: translateX(-160px);
+	}
+	37.5% {
 		transform: translateX(-100px);
 	}
 	100% {
