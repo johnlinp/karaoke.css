@@ -1,0 +1,37 @@
+# the name of the song
+song-name: 一生旅行
+
+# the audio file
+audio-filename: /home/johnlinp/something/uptu/proposal/music/metal/metal.ogg
+
+# output directory
+output-dir-name: /home/johnlinp/coding/leisure/karaoke.py/travel-for-life
+
+# the beat per minute
+beat-per-minute: 55
+
+# the begin time of the song, in second and milli second
+begin-time: 1.22
+
+=====
+
+[intro]       16
+
+一起去旅行    0.75, 0.75, 0.5, 0.75, 1.25
+妳說好嗎      0.75, 0.75, 0.25, 0.25
+戴上妳的墨鏡  0.75, 0.75, 0.25, 0.25, 0.75, 1.25
+一起出發      0.75, 0.75, 0.25, 0.25
+#規劃了六年
+#有點太久
+#拿著拍立得
+#我們走
+#
+#我訂的飯店
+#比五星級更好
+#冰箱的東西
+#隨便吃到飽
+#不用帶行李
+#也不用退房
+#因為那裡是
+#我們家
+
