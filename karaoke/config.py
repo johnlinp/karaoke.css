@@ -53,12 +53,24 @@ class Config(object):
 
 	def _read_beats(self, beats):
 		self.beats = []
+		position = 'left'
 		for line in beats:
 			lyric, beats = self._parse_lyric_beats(line)
-			self.beats.append({
-				'lyric': lyric,
-				'beats': beats,
-			})
+			beat = {}
+			beat['lyric'] = lyric
+			beat['beats'] = beats
+			if lyric is None:
+				position = 'left'
+			else:
+				beat['position'] = position
+				if position == 'left':
+					position = 'right'
+				elif position == 'right':
+					position = 'left'
+				else:
+					assert False
+
+			self.beats.append(beat)
 
 
 	def _validate(self):

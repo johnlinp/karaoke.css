@@ -5,6 +5,7 @@ class HtmlGenerator(generator.Generator):
 	def generate(self):
 		html_dom = self._grow_html_tree()
 		self._write_file(html_dom)
+		self._copy_audio()
 
 
 	def _grow_html_tree(self):
@@ -43,22 +44,21 @@ class HtmlGenerator(generator.Generator):
 		screen = HtmlDom('svg')
 		screen.set_attr('class', 'screen')
 
-		position = 'left'
+		audio = HtmlDom('audio')
+		audio.set_attr('control')
+		audio.set_attr('autoplay')
+
+		source = HtmlDom('source')
+		source.set_attr('src', 'audio/metal.ogg')
+		source.set_attr('type', 'audio/ogg')
+
 		for idx, beat in enumerate(self._config.beats):
 			if beat['lyric'] is None:
-				position = 'left'
 				continue
 
-			clippath = self._grow_clippath_tree(idx, beat, position)
+			clippath = self._grow_clippath_tree(idx, beat)
 			shape = self._grow_block_tree(idx, 'shape')
 			shadow = self._grow_block_tree(idx, 'shadow')
-
-			if position == 'left':
-				position = 'right'
-			elif position == 'right':
-				position = 'left'
-			else:
-				assert False
 
 			screen.append_child(clippath)
 			screen.append_child(shape)
@@ -66,22 +66,25 @@ class HtmlGenerator(generator.Generator):
 
 		content.append_child(screen)
 
+		audio.append_child(source)
+
 		body.append_child(content)
+		body.append_child(audio)
 
 		return body
 
 
-	def _grow_clippath_tree(self, idx, beat, position):
+	def _grow_clippath_tree(self, idx, beat):
 		clippath = HtmlDom('clippath')
 		clippath.set_attr('id', 'lyric-{}'.format(idx))
 
 		text = HtmlDom('text')
 		text.append_child(beat['lyric'])
-		if position == 'left':
+		if beat['position'] == 'left':
 			text.set_attr('text-anchor', 'start')
 			text.set_attr('x', '100px')
 			text.set_attr('y', '80%')
-		elif position == 'right':
+		elif beat['position'] == 'right':
 			text.set_attr('text-anchor', 'end')
 			text.set_attr('x', '1100px')
 			text.set_attr('y', '90%')
@@ -121,6 +124,10 @@ class HtmlGenerator(generator.Generator):
 			file_.write(html_dom.to_string())
 
 
+	def _copy_audio(self):
+		pass
+
+
 	def _html5_doctype(self):
 		return '<!doctype html>\n'
 
@@ -132,7 +139,7 @@ class HtmlDom(object):
 		self._children = []
 
 
-	def set_attr(self, attr_name, attr_value):
+	def set_attr(self, attr_name, attr_value=None):
 		self._attrs[attr_name] = attr_value
 
 
@@ -141,12 +148,18 @@ class HtmlDom(object):
 
 
 	def to_string(self, level=0):
-		attrs_string = ['{}="{}"'.format(name, value) for name, value in self._attrs.items()]
-		attrs_string = ' '.join(attrs_string)
-		if attrs_string:
-			attrs_string = ' ' + attrs_string
+		attrs_short_strings = []
+		attrs_whole_string = ''
+		for name, value in self._attrs.items():
+			if value is not None:
+				attrs_short_strings.append('{}="{}"'.format(name, value))
+			else:
+				attrs_short_strings.append(name)
+		attrs_whole_string = ' '.join(attrs_short_strings)
+		if attrs_whole_string:
+			attrs_whole_string = ' ' + attrs_whole_string
 
-		dom_string = '{}<{}{}>\n'.format('\t' * level, self._tag_name, attrs_string)
+		dom_string = '{}<{}{}>\n'.format('\t' * level, self._tag_name, attrs_whole_string)
 
 		for child in self._children:
 			if isinstance(child, str):
