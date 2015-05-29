@@ -135,43 +135,52 @@ class CssGenerator(generator.Generator):
 			for line in section['lines']:
 				shadow = CssRule('.shadow-{}'.format(line['idx']))
 
-				delay = self._config.begin_time + self._beats_to_seconds(line['delay'])
-				duration = self._beats_to_seconds(line['duration'])
+				delay_seconds = self._config.begin_time + self._beats_to_seconds(line['delay'])
+				duration_seconds = self._beats_to_seconds(line['duration'])
 
 				shadow.add_declaration('transform', 'translateX(-1200px)')
-				shadow.add_declaration('animation', 'shadow-show {}s'.format(duration))
-				shadow.add_declaration('animation-delay', '{}s'.format(delay))
+				shadow.add_declaration('animation', 'shadow-show {}s'.format(duration_seconds))
+				shadow.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
 				css_rules.append(shadow)
 
 
 	def _append_shape_move(self, css_rules):
+		delay_beats = 0
 		for idx, beat in enumerate(self._config.beats):
-			shape_move = CssRule('.shape-move-{}'.format(idx))
-			shape_move.add_declaration('transform', 'translateX(-1200px)')
-			#shape_move.add_declaration('animation', 'lyric-run-{} 5s'.format(idx))
-			#shape_move.add_declaration('animation-delay', '3s')
+			if beat['lyric'] is not None:
+				shape_move = CssRule('.shape-move-{}'.format(idx))
 
-			css_rules.append(shape_move)
+				delay_seconds = self._config.begin_time + self._beats_to_seconds(delay_beats)
+				duration_seconds = self._beats_to_seconds(sum(beat['beats']) + self._NUM_STAY_BEATS)
+
+				shape_move.add_declaration('transform', 'translateX(-1200px)')
+				shape_move.add_declaration('animation', 'lyric-run-{} {}s'.format(idx, duration_seconds))
+				shape_move.add_declaration('animation-delay', '{}s'.format(delay_seconds))
+
+				css_rules.append(shape_move)
+
+			delay_beats += sum(beat['beats'])
+
+			print delay_beats
 
 
 	def _append_lyric_run(self, css_rules):
-		pass
-		#for idx, beat in enumerate(self._config.beats):
-		#	#lyric_run = CssRule('@keyframes lyric-run-{}'.format(idx))
-		#	#lyric_run.add_keyframe(0, -1100)
-		#	#lyric_run.add_keyframe(10, -1040)
-		#	#lyric_run.add_keyframe(15, -1040)
-		#	#lyric_run.add_keyframe(25, -980)
-		#	#lyric_run.add_keyframe(30, -980)
-		#	#lyric_run.add_keyframe(35, -920)
-		#	#lyric_run.add_keyframe(40, -920)
-		#	#lyric_run.add_keyframe(50, -860)
-		#	#lyric_run.add_keyframe(55, -860)
-		#	#lyric_run.add_keyframe(65, -800)
-		#	#lyric_run.add_keyframe(100, -800)
+		for idx, beat in enumerate(self._config.beats):
+			lyric_run = CssRule('@keyframes lyric-run-{}'.format(idx))
+			lyric_run.add_keyframe(0, -1100)
+			lyric_run.add_keyframe(10, -1040)
+			lyric_run.add_keyframe(15, -1040)
+			lyric_run.add_keyframe(25, -980)
+			lyric_run.add_keyframe(30, -980)
+			lyric_run.add_keyframe(35, -920)
+			lyric_run.add_keyframe(40, -920)
+			lyric_run.add_keyframe(50, -860)
+			lyric_run.add_keyframe(55, -860)
+			lyric_run.add_keyframe(65, -800)
+			lyric_run.add_keyframe(100, -800)
 
-		#	#css_rules.append(lyric_run)
+			css_rules.append(lyric_run)
 
 
 	def _write_file(self, css_rules):
