@@ -100,7 +100,7 @@ class Config(object):
 			raise Exception('Invalid config beats format: {}'.format(line))
 
 		lyric = match.group(1)
-		if lyric in ['[intro]', '[outro]']:
+		if lyric.startswith('[') and lyric.endswith(']'):
 			lyric = None
 
 		beats = match.group(2)
