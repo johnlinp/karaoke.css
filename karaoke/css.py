@@ -20,6 +20,8 @@ class CssGenerator(generator.Generator):
 		self._NUM_COUNT_DOWN_BEATS = 4
 		# how long will the lyric stay after it was sung
 		self._NUM_STAY_BEATS = 1
+		# the width of a character in pixel
+		self._CHAR_WIDTH = 60
 
 
 	def _append_general(self, css_rules):
@@ -162,23 +164,30 @@ class CssGenerator(generator.Generator):
 
 			delay_beats += sum(beat['beats'])
 
-			print delay_beats
-
 
 	def _append_lyric_run(self, css_rules):
 		for idx, beat in enumerate(self._config.beats):
+			if beat['lyric'] is None:
+				continue
+
+			percents_per_beat = 100.0 / (sum(beat['beats']) + self._NUM_STAY_BEATS)
+
 			lyric_run = CssRule('@keyframes lyric-run-{}'.format(idx))
 			lyric_run.add_keyframe(0, -1100)
-			lyric_run.add_keyframe(10, -1040)
-			lyric_run.add_keyframe(15, -1040)
-			lyric_run.add_keyframe(25, -980)
-			lyric_run.add_keyframe(30, -980)
-			lyric_run.add_keyframe(35, -920)
-			lyric_run.add_keyframe(40, -920)
-			lyric_run.add_keyframe(50, -860)
-			lyric_run.add_keyframe(55, -860)
-			lyric_run.add_keyframe(65, -800)
-			lyric_run.add_keyframe(100, -800)
+
+			if beat['position'] == 'left':
+				cur_translate = -1100
+			elif beat['position'] == 'right':
+				cur_translate = -100 - self._CHAR_WIDTH * len(beat['lyric'].decode('utf8'))
+			else:
+				assert False
+
+			cur_beats = 0
+			for beat_length in beat['beats']:
+				cur_beats += beat_length
+				cur_translate += self._CHAR_WIDTH
+				lyric_run.add_keyframe(percents_per_beat * cur_beats, cur_translate)
+			lyric_run.add_keyframe(100, cur_translate)
 
 			css_rules.append(lyric_run)
 
