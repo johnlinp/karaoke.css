@@ -173,7 +173,6 @@ class CssGenerator(generator.Generator):
 			percents_per_beat = 100.0 / (sum(beat['beats']) + self._NUM_STAY_BEATS)
 
 			lyric_run = CssRule('@keyframes lyric-run-{}'.format(idx))
-			lyric_run.add_keyframe(0, -1100)
 
 			if beat['position'] == 'left':
 				cur_translate = -1100
@@ -181,6 +180,8 @@ class CssGenerator(generator.Generator):
 				cur_translate = -100 - self._CHAR_WIDTH * len(beat['lyric'].decode('utf8'))
 			else:
 				assert False
+
+			lyric_run.add_keyframe(0, cur_translate)
 
 			cur_beats = 0
 			for beat_length in beat['beats']:
