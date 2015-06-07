@@ -1,71 +1,245 @@
 <!doctype html>
 <html>
 	<head>
-		<title>一生旅行</title>
-		<meta charset="utf8" />
-		<link rel="stylesheet" href="css/karaoke.css" />
-		<style>
-		</style>
+		<title>
+			一生旅行
+		</title>
+		<meta charset="utf8">
+		</meta>
+		<link href="css/karaoke.css" rel="stylesheet">
+		</link>
 	</head>
-
 	<body>
 		<div class="content">
 			<svg class="screen">
+				<clippath id="title">
+					<text y="40%" x="50%" class="song-name" text-anchor="middle">
+						一生旅行
+					</text>
+					<text y="50%" x="50%" class="credits" text-anchor="middle">
+						詞：未婚夫
+					</text>
+					<text y="56%" x="50%" class="credits" text-anchor="middle">
+						曲：未婚夫
+					</text>
+				</clippath>
+				<g clip-path="url(#title)">
+					<rect width="100%" class="title shape-title" height="100%">
+					</rect>
+				</g>
 				<clippath id="lyric-1">
-					<text text-anchor="start" x="100px" y="80%">
+					<text y="80%" x="100px" text-anchor="start">
 						一起去旅行
 					</text>
 				</clippath>
+				<g clip-path="url(#lyric-1)">
+					<rect width="100%" class="shape-move-1 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-1)">
+					<rect width="100%" class="shadow shadow-1" height="100%">
+					</rect>
+				</g>
 				<clippath id="lyric-2">
-					<text text-anchor="end" x="1100px" y="90%">
+					<text y="90%" x="1100px" text-anchor="end">
 						妳說好嗎
 					</text>
 				</clippath>
+				<g clip-path="url(#lyric-2)">
+					<rect width="100%" class="shape-move-2 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-2)">
+					<rect width="100%" class="shadow shadow-2" height="100%">
+					</rect>
+				</g>
 				<clippath id="lyric-3">
-					<text text-anchor="start" x="100px" y="80%">
-						戴上了墨鏡
+					<text y="80%" x="100px" text-anchor="start">
+						戴上妳的墨鏡
 					</text>
 				</clippath>
+				<g clip-path="url(#lyric-3)">
+					<rect width="100%" class="shape-move-3 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-3)">
+					<rect width="100%" class="shadow shadow-3" height="100%">
+					</rect>
+				</g>
 				<clippath id="lyric-4">
-					<text text-anchor="end" x="1100px" y="90%">
+					<text y="90%" x="1100px" text-anchor="end">
 						準備出發
 					</text>
 				</clippath>
-
-				<g clip-path="url(#lyric-1)">
-					<rect width="100%" height="100%" class="shadow shadow-1"></rect>
-				</g>
-
-				<g clip-path="url(#lyric-1)">
-					<rect width="100%" height="100%" class="shape-move-1 shape-boy"></rect>
-				</g>
-
-				<g clip-path="url(#lyric-2)">
-					<rect width="100%" height="100%" class="shadow shadow-2"></rect>
-				</g>
-
-				<g clip-path="url(#lyric-2)">
-					<rect width="100%" height="100%" class="shape-move-2 shape-girl"></rect>
-				</g>
-
-				<g clip-path="url(#lyric-3)">
-					<rect width="100%" height="100%" class="shadow shadow-3"></rect>
-				</g>
-
-				<g clip-path="url(#lyric-3)">
-					<rect width="100%" height="100%" class="shape-move-3 shape-boy"></rect>
-				</g>
-
 				<g clip-path="url(#lyric-4)">
-					<rect width="100%" height="100%" class="shadow shadow-4"></rect>
+					<rect width="100%" class="shape-move-4 shape-boy" height="100%">
+					</rect>
 				</g>
-
 				<g clip-path="url(#lyric-4)">
-					<rect width="100%" height="100%" class="shape-move-4 shape-both"></rect>
+					<rect width="100%" class="shadow shadow-4" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-5">
+					<text y="80%" x="100px" text-anchor="start">
+						規劃了六年
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-5)">
+					<rect width="100%" class="shape-move-5 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-5)">
+					<rect width="100%" class="shadow shadow-5" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-6">
+					<text y="90%" x="1100px" text-anchor="end">
+						有點太久
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-6)">
+					<rect width="100%" class="shape-move-6 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-6)">
+					<rect width="100%" class="shadow shadow-6" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-7">
+					<text y="80%" x="100px" text-anchor="start">
+						拿著拍立得
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-7)">
+					<rect width="100%" class="shape-move-7 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-7)">
+					<rect width="100%" class="shadow shadow-7" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-8">
+					<text y="90%" x="1100px" text-anchor="end">
+						我們走
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-8)">
+					<rect width="100%" class="shape-move-8 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-8)">
+					<rect width="100%" class="shadow shadow-8" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-9">
+					<text y="80%" x="100px" text-anchor="start">
+						我訂的飯店
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-9)">
+					<rect width="100%" class="shape-move-9 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-9)">
+					<rect width="100%" class="shadow shadow-9" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-10">
+					<text y="90%" x="1100px" text-anchor="end">
+						比五星級更好
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-10)">
+					<rect width="100%" class="shape-move-10 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-10)">
+					<rect width="100%" class="shadow shadow-10" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-11">
+					<text y="80%" x="100px" text-anchor="start">
+						冰箱的東西
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-11)">
+					<rect width="100%" class="shape-move-11 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-11)">
+					<rect width="100%" class="shadow shadow-11" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-12">
+					<text y="90%" x="1100px" text-anchor="end">
+						隨便吃到飽
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-12)">
+					<rect width="100%" class="shape-move-12 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-12)">
+					<rect width="100%" class="shadow shadow-12" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-13">
+					<text y="80%" x="100px" text-anchor="start">
+						不用帶行李
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-13)">
+					<rect width="100%" class="shape-move-13 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-13)">
+					<rect width="100%" class="shadow shadow-13" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-14">
+					<text y="90%" x="1100px" text-anchor="end">
+						也不用退房
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-14)">
+					<rect width="100%" class="shape-move-14 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-14)">
+					<rect width="100%" class="shadow shadow-14" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-15">
+					<text y="80%" x="100px" text-anchor="start">
+						因為那裡是
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-15)">
+					<rect width="100%" class="shape-move-15 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-15)">
+					<rect width="100%" class="shadow shadow-15" height="100%">
+					</rect>
+				</g>
+				<clippath id="lyric-16">
+					<text y="90%" x="1100px" text-anchor="end">
+						我們家
+					</text>
+				</clippath>
+				<g clip-path="url(#lyric-16)">
+					<rect width="100%" class="shape-move-16 shape-boy" height="100%">
+					</rect>
+				</g>
+				<g clip-path="url(#lyric-16)">
+					<rect width="100%" class="shadow shadow-16" height="100%">
+					</rect>
 				</g>
 			</svg>
 		</div>
-
-		<script src="js/karaoke.js"></script>
+		<audio control autoplay>
+			<source src="audio/metal.ogg" type="audio/ogg">
+			</source>
+		</audio>
 	</body>
 </html>
