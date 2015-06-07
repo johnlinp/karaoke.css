@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 import os
 import generator
 
@@ -52,6 +54,12 @@ class HtmlGenerator(generator.Generator):
 		source.set_attr('src', 'audio/metal.ogg')
 		source.set_attr('type', 'audio/ogg')
 
+		clippath = self._grow_clippath_tree(-1, None)
+		shape = self._grow_block_tree(-1, 'title')
+
+		screen.append_child(clippath)
+		screen.append_child(shape)
+
 		for idx, beat in enumerate(self._config.beats):
 			if beat['lyric'] is None:
 				continue
@@ -76,35 +84,70 @@ class HtmlGenerator(generator.Generator):
 
 	def _grow_clippath_tree(self, idx, beat):
 		clippath = HtmlDom('clippath')
-		clippath.set_attr('id', 'lyric-{}'.format(idx))
 
-		text = HtmlDom('text')
-		text.append_child(beat['lyric'])
-		if beat['position'] == 'left':
-			text.set_attr('text-anchor', 'start')
-			text.set_attr('x', '100px')
-			text.set_attr('y', '80%')
-		elif beat['position'] == 'right':
-			text.set_attr('text-anchor', 'end')
-			text.set_attr('x', '1100px')
-			text.set_attr('y', '90%')
+		if beat is None: # the title
+			clippath.set_attr('id', 'title')
+
+			text = HtmlDom('text')
+			text.append_child(self._config.song_name)
+			text.set_attr('text-anchor', 'middle')
+			text.set_attr('x', '50%')
+			text.set_attr('y', '40%')
+			text.set_attr('class', 'song-name')
+
+			clippath.append_child(text)
+
+			text = HtmlDom('text')
+			text.append_child('詞：{}'.format(self._config.lyric_writer))
+			text.set_attr('text-anchor', 'middle')
+			text.set_attr('x', '50%')
+			text.set_attr('y', '50%')
+			text.set_attr('class', 'credits')
+
+			clippath.append_child(text)
+
+			text = HtmlDom('text')
+			text.append_child('曲：{}'.format(self._config.melody_writer))
+			text.set_attr('text-anchor', 'middle')
+			text.set_attr('x', '50%')
+			text.set_attr('y', '56%')
+			text.set_attr('class', 'credits')
+
+			clippath.append_child(text)
 		else:
-			assert False
+			text = HtmlDom('text')
+			clippath.set_attr('id', 'lyric-{}'.format(idx))
+			text.append_child(beat['lyric'])
+			if beat['position'] == 'left':
+				text.set_attr('text-anchor', 'start')
+				text.set_attr('x', '100px')
+				text.set_attr('y', '80%')
+			elif beat['position'] == 'right':
+				text.set_attr('text-anchor', 'end')
+				text.set_attr('x', '1100px')
+				text.set_attr('y', '90%')
+			else:
+				assert False
 
-		clippath.append_child(text)
+			clippath.append_child(text)
 
 		return clippath
 
 
 	def _grow_block_tree(self, idx, which):
 		block = HtmlDom('g')
-		block.set_attr('clip-path', 'url(#lyric-{})'.format(idx))
+		if which == 'title': # the title
+			block.set_attr('clip-path', 'url(#title)')
+		else:
+			block.set_attr('clip-path', 'url(#lyric-{})'.format(idx))
 
 		rect = HtmlDom('rect')
 		rect.set_attr('width', '100%')
 		rect.set_attr('height', '100%')
 
-		if which == 'shape':
+		if which == 'title':
+			rect.set_attr('class', 'title shape-title'.format(idx))
+		elif which == 'shape':
 			rect.set_attr('class', 'shape-move-{} shape-boy'.format(idx))
 		elif which == 'shadow':
 			rect.set_attr('class', 'shadow shadow-{}'.format(idx))

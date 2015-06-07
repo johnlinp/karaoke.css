@@ -114,6 +114,8 @@ class Config(object):
 	def _get_settings_types(self):
 		return {
 			'song_name': str,
+			'lyric_writer': str,
+			'melody_writer': str,
 			'audio_filename': str,
 			'output_dir_name': str,
 			'beat_per_minute': float,

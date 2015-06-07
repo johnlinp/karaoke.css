@@ -1,6 +1,12 @@
 # the name of the song
 song-name: 一生旅行
 
+# the auther of the lyric
+lyric-writer: 未婚夫
+
+# the auther of the melody
+melody-writer: 未婚夫
+
 # the audio file
 audio-filename: /home/johnlinp/something/uptu/proposal/music/metal/metal.ogg
 

@@ -20,6 +20,8 @@ class CssGenerator(generator.Generator):
 		self._NUM_COUNT_DOWN_BEATS = 4
 		# how long will the lyric stay after it was sung
 		self._NUM_STAY_BEATS = 1
+		# how long the title will stay on the screen
+		self._NUM_TITLE_BEATS = 8
 		# the width of a character in pixel
 		self._CHAR_WIDTH = 60
 
@@ -41,6 +43,9 @@ class CssGenerator(generator.Generator):
 		screen.add_declaration('margin', '0 auto 50px')
 		screen.add_declaration('display', 'block')
 
+		shape_title = CssRule('.shape-title')
+		shape_title.add_declaration('fill', '#16a085')
+
 		shape_boy = CssRule('.shape-boy')
 		shape_boy.add_declaration('fill', '#34495e')
 
@@ -54,18 +59,33 @@ class CssGenerator(generator.Generator):
 		shadow.add_declaration('fill', '#000000')
 		shadow.add_declaration('fill-opacity', '.4')
 
+		title_show = CssRule('@keyframes title-show')
+		title_show.add_keyframe(0, 0)
+		title_show.add_keyframe(80, 0)
+		title_show.add_keyframe(100, 1100)
+
 		shadow_show = CssRule('@keyframes shadow-show')
 		shadow_show.add_keyframe(0, 0)
 		shadow_show.add_keyframe(100, 0)
 
+		title_song_name = CssRule('#title .song-name')
+		title_song_name.add_declaration('font-size', '80px')
+
+		title_credits = CssRule('#title .credits')
+		title_credits.add_declaration('font-size', '30px')
+
 		css_rules.append(whole)
 		css_rules.append(content)
 		css_rules.append(screen)
+		css_rules.append(shape_title)
 		css_rules.append(shape_boy)
 		css_rules.append(shape_girl)
 		css_rules.append(shape_both)
 		css_rules.append(shadow)
+		css_rules.append(title_show)
 		css_rules.append(shadow_show)
+		css_rules.append(title_song_name)
+		css_rules.append(title_credits)
 
 
 	def _beats_to_seconds(self, num_beats):
@@ -74,9 +94,23 @@ class CssGenerator(generator.Generator):
 
 
 	def _append_beats(self, css_rules):
+		self._append_title(css_rules)
 		self._append_shadow(css_rules)
 		self._append_shape_move(css_rules)
 		self._append_lyric_run(css_rules)
+
+
+	def _append_title(self, css_rules):
+		title = CssRule('.title')
+
+		delay_seconds = self._config.begin_time
+		duration_seconds = self._beats_to_seconds(self._NUM_TITLE_BEATS)
+
+		title.add_declaration('transform', 'translateX(-1200px)')
+		title.add_declaration('animation', 'title-show {}s'.format(duration_seconds))
+		title.add_declaration('animation-delay', '{}s'.format(delay_seconds))
+
+		css_rules.append(title)
 
 
 	def _append_shadow(self, css_rules):
