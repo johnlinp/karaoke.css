@@ -15,8 +15,10 @@ def main(argv):
 	config = karaoke.Config(argv[1])
 	html = karaoke.HtmlGenerator(config)
 	css = karaoke.CssGenerator(config)
+	audio = karaoke.AudioGenerator(config)
 	html.generate()
 	css.generate()
+	audio.generate()
 
 
 if __name__ == '__main__':

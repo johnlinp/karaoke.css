@@ -51,7 +51,8 @@ class HtmlGenerator(generator.Generator):
 		audio.set_attr('autoplay')
 
 		source = HtmlDom('source')
-		source.set_attr('src', 'audio/metal.ogg')
+		audio_basename = os.path.basename(self._config.audio_filename)
+		source.set_attr('src', 'audio/' + audio_basename)
 		source.set_attr('type', 'audio/ogg')
 
 		clippath = self._grow_clippath_tree(-1, None)
