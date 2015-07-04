@@ -21,6 +21,8 @@ begin-time: 4.37
 
 =====
 
+# the lyrics part
+
 [intro]       16
 
 一起去旅行    0.75, 0.75, 0.5, 0.75, 1.25
@@ -43,3 +45,19 @@ begin-time: 4.37
 
 [proposal]    8
 
+=====
+
+# the vision part
+
+[title]       4
+
+suitcase      4
+- 8e44ad  body
+- 2c3e50  handle
+- 7f8c8d  wheels
+- 9b59b6  reflection
+
+sunglasses    4
+- 34495e  lens-right
+- 34495e  lens-left
+- 7f8c8d  temples
