@@ -26,6 +26,8 @@ class CssGenerator(generator.Generator):
 		self._NUM_TITLE_BEATS = 8
 		# the width of a character in pixel
 		self._CHAR_WIDTH = 60
+		# the time span between each vision component in seconds
+		self._BETWEEN_VISION_COMPONENT = 0.2
 
 
 	def _append_general(self, css_rules):
@@ -251,8 +253,8 @@ class CssGenerator(generator.Generator):
 		for idx, vision in enumerate(self._config.visions):
 			if vision['name'] is not None:
 				for jdx, component in enumerate(vision['components']):
-					delay_seconds = self._config.begin_time + self._beats_to_seconds(delay_beats)
-					duration_seconds = self._beats_to_seconds(vision['beat'])
+					delay_seconds = self._config.begin_time + self._beats_to_seconds(delay_beats) + self._BETWEEN_VISION_COMPONENT * jdx
+					duration_seconds = self._beats_to_seconds(vision['beat']) - self._BETWEEN_VISION_COMPONENT * jdx * 2
 
 					timing = CssRule('.colorful-visions-timing-{}-{}'.format(idx, jdx))
 					timing.add_declaration('transform', 'translateX(-1200px)')
