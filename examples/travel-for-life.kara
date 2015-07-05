@@ -57,10 +57,14 @@ begin-time: 4.37
 suitcase      4
 - 8e44ad  body
 - 2c3e50  handle
+- ecf0f1  sticks
 - 7f8c8d  wheels
-- 9b59b6  reflection
+- 9b59b6  face
+- f39c12  mark
+- bdc3c7  corner
+- e67e22  label
 
-sunglasses    4
-- 34495e  lens-right
-- 34495e  lens-left
-- 7f8c8d  temples
+#sunglasses    4
+#- 34495e  lens-right
+#- 34495e  lens-left
+#- 7f8c8d  temples

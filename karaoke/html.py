@@ -7,7 +7,6 @@ class HtmlGenerator(generator.Generator):
 	def generate(self):
 		html_dom = self._grow_html_tree()
 		self._write_file(html_dom)
-		self._copy_audio()
 
 
 	def _grow_html_tree(self):
@@ -46,6 +45,53 @@ class HtmlGenerator(generator.Generator):
 		screen = HtmlDom('svg')
 		screen.set_attr('class', 'screen')
 
+		self._append_title(screen)
+		self._append_lyrics(screen)
+		self._append_visions(screen)
+
+		content.append_child(screen)
+
+		body.append_child(content)
+
+		self._append_audio(body)
+
+		return body
+
+
+	def _append_title(self, screen):
+		clippath = self._grow_title_clippath_tree()
+		shape = self._grow_title_block_tree()
+
+		screen.append_child(clippath)
+		screen.append_child(shape)
+
+
+	def _append_lyrics(self, screen):
+		for idx, beat in enumerate(self._config.beats):
+			if beat['lyric'] is None:
+				continue
+
+			clippath = self._grow_lyrics_clippath_tree(idx, beat)
+			shape = self._grow_lyrics_block_tree('shape', idx)
+			shadow = self._grow_lyrics_block_tree('shadow', idx)
+
+			screen.append_child(clippath)
+			screen.append_child(shape)
+			screen.append_child(shadow)
+
+
+	def _append_visions(self, screen):
+		for idx, vision in enumerate(self._config.visions):
+			if vision['name'] is None:
+				continue
+
+			filename = 'visions/{}.svg'.format(vision['name'])
+			for jdx, component in enumerate(vision['components']):
+				shape = self._grow_visions_block_tree(filename, component)
+				screen.append_child(shape)
+
+
+	def _append_audio(self, body):
 		audio = HtmlDom('audio')
 		audio.set_attr('control')
 		audio.set_attr('autoplay')
@@ -55,105 +101,111 @@ class HtmlGenerator(generator.Generator):
 		source.set_attr('src', 'audio/' + audio_basename)
 		source.set_attr('type', 'audio/ogg')
 
-		clippath = self._grow_clippath_tree(-1, None)
-		shape = self._grow_block_tree(-1, 'title')
-
-		screen.append_child(clippath)
-		screen.append_child(shape)
-
-		for idx, beat in enumerate(self._config.beats):
-			if beat['lyric'] is None:
-				continue
-
-			clippath = self._grow_clippath_tree(idx, beat)
-			shape = self._grow_block_tree(idx, 'shape')
-			shadow = self._grow_block_tree(idx, 'shadow')
-
-			screen.append_child(clippath)
-			screen.append_child(shape)
-			screen.append_child(shadow)
-
-		content.append_child(screen)
-
 		audio.append_child(source)
 
-		body.append_child(content)
 		body.append_child(audio)
 
-		return body
 
-
-	def _grow_clippath_tree(self, idx, beat):
+	def _grow_title_clippath_tree(self):
 		clippath = HtmlDom('clippath')
 
-		if beat is None: # the title
-			clippath.set_attr('id', 'title')
+		clippath.set_attr('id', 'title')
 
-			text = HtmlDom('text')
-			text.append_child(self._config.song_name)
-			text.set_attr('text-anchor', 'middle')
-			text.set_attr('x', '50%')
-			text.set_attr('y', '40%')
-			text.set_attr('class', 'song-name')
+		text = HtmlDom('text')
+		text.append_child(self._config.song_name)
+		text.set_attr('text-anchor', 'middle')
+		text.set_attr('x', '50%')
+		text.set_attr('y', '40%')
+		text.set_attr('class', 'song-name')
 
-			clippath.append_child(text)
+		clippath.append_child(text)
 
-			text = HtmlDom('text')
-			text.append_child('詞：{}'.format(self._config.lyric_writer))
-			text.set_attr('text-anchor', 'middle')
-			text.set_attr('x', '50%')
-			text.set_attr('y', '50%')
-			text.set_attr('class', 'credits')
+		text = HtmlDom('text')
+		text.append_child('詞：{}'.format(self._config.lyric_writer))
+		text.set_attr('text-anchor', 'middle')
+		text.set_attr('x', '50%')
+		text.set_attr('y', '50%')
+		text.set_attr('class', 'credits')
 
-			clippath.append_child(text)
+		clippath.append_child(text)
 
-			text = HtmlDom('text')
-			text.append_child('曲：{}'.format(self._config.melody_writer))
-			text.set_attr('text-anchor', 'middle')
-			text.set_attr('x', '50%')
-			text.set_attr('y', '56%')
-			text.set_attr('class', 'credits')
+		text = HtmlDom('text')
+		text.append_child('曲：{}'.format(self._config.melody_writer))
+		text.set_attr('text-anchor', 'middle')
+		text.set_attr('x', '50%')
+		text.set_attr('y', '56%')
+		text.set_attr('class', 'credits')
 
-			clippath.append_child(text)
+		clippath.append_child(text)
+
+		return clippath
+
+	def _grow_lyrics_clippath_tree(self, idx, beat):
+		clippath = HtmlDom('clippath')
+
+		text = HtmlDom('text')
+		clippath.set_attr('id', 'lyric-{}'.format(idx))
+		text.append_child(beat['lyric'])
+		if beat['position'] == 'left':
+			text.set_attr('text-anchor', 'start')
+			text.set_attr('x', '100px')
+			text.set_attr('y', '80%')
+		elif beat['position'] == 'right':
+			text.set_attr('text-anchor', 'end')
+			text.set_attr('x', '1100px')
+			text.set_attr('y', '90%')
 		else:
-			text = HtmlDom('text')
-			clippath.set_attr('id', 'lyric-{}'.format(idx))
-			text.append_child(beat['lyric'])
-			if beat['position'] == 'left':
-				text.set_attr('text-anchor', 'start')
-				text.set_attr('x', '100px')
-				text.set_attr('y', '80%')
-			elif beat['position'] == 'right':
-				text.set_attr('text-anchor', 'end')
-				text.set_attr('x', '1100px')
-				text.set_attr('y', '90%')
-			else:
-				assert False
+			assert False
 
-			clippath.append_child(text)
+		clippath.append_child(text)
 
 		return clippath
 
 
-	def _grow_block_tree(self, idx, which):
+	def _grow_title_block_tree(self):
 		block = HtmlDom('g')
-		if which == 'title': # the title
-			block.set_attr('clip-path', 'url(#title)')
-		else:
-			block.set_attr('clip-path', 'url(#lyric-{})'.format(idx))
+		block.set_attr('clip-path', 'url(#title)')
 
 		rect = HtmlDom('rect')
 		rect.set_attr('width', '100%')
 		rect.set_attr('height', '100%')
 
-		if which == 'title':
-			rect.set_attr('class', 'title shape-title'.format(idx))
-		elif which == 'shape':
+		rect.set_attr('class', 'title shape-title')
+
+		block.append_child(rect)
+
+		return block
+
+
+	def _grow_lyrics_block_tree(self, which, idx):
+		block = HtmlDom('g')
+		block.set_attr('clip-path', 'url(#lyric-{})'.format(idx))
+
+		rect = HtmlDom('rect')
+		rect.set_attr('width', '100%')
+		rect.set_attr('height', '100%')
+
+		if which == 'shape':
 			rect.set_attr('class', 'shape-move-{} shape-boy'.format(idx))
 		elif which == 'shadow':
 			rect.set_attr('class', 'shadow shadow-{}'.format(idx))
 		else:
 			assert False
+
+		block.append_child(rect)
+
+		return block
+
+
+	def _grow_visions_block_tree(self, filename, component):
+		block = HtmlDom('g')
+		block.set_attr('clip-path', 'url({}#{})'.format(filename, component['id']))
+		block.set_attr('transform', 'translate(0, 350)')
+
+		rect = HtmlDom('rect')
+		rect.set_attr('width', '100%')
+		rect.set_attr('height', '100%')
+		rect.set_attr('fill', '#{}'.format(component['color']))
 
 		block.append_child(rect)
 
@@ -166,10 +218,6 @@ class HtmlGenerator(generator.Generator):
 		with open(filename, 'w') as file_:
 			file_.write(self._html5_doctype())
 			file_.write(html_dom.to_string())
-
-
-	def _copy_audio(self):
-		pass
 
 
 	def _html5_doctype(self):

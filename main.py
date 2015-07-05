@@ -16,9 +16,11 @@ def main(argv):
 	html = karaoke.HtmlGenerator(config)
 	css = karaoke.CssGenerator(config)
 	audio = karaoke.AudioGenerator(config)
+	visions = karaoke.VisionsGenerator(config)
 	html.generate()
 	css.generate()
 	audio.generate()
+	visions.generate()
 
 
 if __name__ == '__main__':
