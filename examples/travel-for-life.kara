@@ -8,10 +8,13 @@ lyric-writer: 未婚夫
 melody-writer: 未婚夫
 
 # the audio file
-audio-filename: /home/johnlinp/something/uptu/proposal/music/metal/metal.ogg
+audio-filename: ./examples/assets/audio/metal.ogg
 
 # output directory
-output-dir-name: /home/johnlinp/coding/leisure/karaoke.py/travel-for-life
+output-dir-name: ./travel-for-life
+
+# visions directory
+visions-dir-name: ./examples/assets/visions
 
 # the beat per minute
 beat-per-minute: 55

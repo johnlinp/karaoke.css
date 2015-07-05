@@ -155,6 +155,7 @@ class Config(object):
 			'melody_writer': str,
 			'audio_filename': str,
 			'output_dir_name': str,
+			'visions_dir_name': str,
 			'beat_per_minute': float,
 			'begin_time': float,
 			'beats': list,
