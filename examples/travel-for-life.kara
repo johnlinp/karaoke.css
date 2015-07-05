@@ -52,13 +52,13 @@ begin-time: 4.37
 
 # the vision part
 
-[title]       4
+[title]       8
 
-suitcase      4
-- 8e44ad  body
-- 2c3e50  handle
-- ecf0f1  sticks
+suitcase      8
 - 7f8c8d  wheels
+- 8e44ad  body
+- ecf0f1  sticks
+- 2c3e50  handle
 - 9b59b6  face
 - f39c12  mark
 - bdc3c7  corner

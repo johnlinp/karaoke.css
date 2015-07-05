@@ -87,7 +87,7 @@ class HtmlGenerator(generator.Generator):
 
 			filename = 'visions/{}.svg'.format(vision['name'])
 			for jdx, component in enumerate(vision['components']):
-				shape = self._grow_visions_block_tree(filename, component)
+				shape = self._grow_visions_block_tree(filename, component, idx, jdx)
 				screen.append_child(shape)
 
 
@@ -109,7 +109,7 @@ class HtmlGenerator(generator.Generator):
 	def _grow_title_clippath_tree(self):
 		clippath = HtmlDom('clippath')
 
-		clippath.set_attr('id', 'title')
+		clippath.set_attr('id', 'title-clip')
 
 		text = HtmlDom('text')
 		text.append_child(self._config.song_name)
@@ -144,7 +144,7 @@ class HtmlGenerator(generator.Generator):
 		clippath = HtmlDom('clippath')
 
 		text = HtmlDom('text')
-		clippath.set_attr('id', 'lyric-{}'.format(idx))
+		clippath.set_attr('id', 'lyric-clip-{}'.format(idx))
 		text.append_child(beat['lyric'])
 		if beat['position'] == 'left':
 			text.set_attr('text-anchor', 'start')
@@ -164,13 +164,13 @@ class HtmlGenerator(generator.Generator):
 
 	def _grow_title_block_tree(self):
 		block = HtmlDom('g')
-		block.set_attr('clip-path', 'url(#title)')
+		block.set_attr('clip-path', 'url(#title-clip)')
 
 		rect = HtmlDom('rect')
 		rect.set_attr('width', '100%')
 		rect.set_attr('height', '100%')
 
-		rect.set_attr('class', 'title shape-title')
+		rect.set_attr('class', 'colorful-title-timing colorful-color-title')
 
 		block.append_child(rect)
 
@@ -179,16 +179,16 @@ class HtmlGenerator(generator.Generator):
 
 	def _grow_lyrics_block_tree(self, which, idx):
 		block = HtmlDom('g')
-		block.set_attr('clip-path', 'url(#lyric-{})'.format(idx))
+		block.set_attr('clip-path', 'url(#lyric-clip-{})'.format(idx))
 
 		rect = HtmlDom('rect')
 		rect.set_attr('width', '100%')
 		rect.set_attr('height', '100%')
 
 		if which == 'shape':
-			rect.set_attr('class', 'shape-move-{} shape-boy'.format(idx))
+			rect.set_attr('class', 'colorful-lyrics-timing-{} colorful-color-boy'.format(idx))
 		elif which == 'shadow':
-			rect.set_attr('class', 'shadow shadow-{}'.format(idx))
+			rect.set_attr('class', 'shadow-lyrics-timing-{} shadow-color'.format(idx))
 		else:
 			assert False
 
@@ -197,7 +197,7 @@ class HtmlGenerator(generator.Generator):
 		return block
 
 
-	def _grow_visions_block_tree(self, filename, component):
+	def _grow_visions_block_tree(self, filename, component, vision_idx, component_idx):
 		block = HtmlDom('g')
 		block.set_attr('clip-path', 'url({}#{})'.format(filename, component['id']))
 		block.set_attr('transform', 'translate(0, 350)')
@@ -206,6 +206,7 @@ class HtmlGenerator(generator.Generator):
 		rect.set_attr('width', '100%')
 		rect.set_attr('height', '100%')
 		rect.set_attr('fill', '#{}'.format(component['color']))
+		rect.set_attr('class', 'colorful-visions-timing-{}-{}'.format(vision_idx, component_idx))
 
 		block.append_child(rect)
 

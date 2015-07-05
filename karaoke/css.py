@@ -8,7 +8,9 @@ class CssGenerator(generator.Generator):
 		css_rules = []
 
 		self._append_general(css_rules)
+		self._append_title(css_rules)
 		self._append_beats(css_rules)
+		self._append_visions(css_rules)
 
 		self._write_file(css_rules)
 
@@ -43,47 +45,36 @@ class CssGenerator(generator.Generator):
 		screen.add_declaration('margin', '0 auto 50px')
 		screen.add_declaration('display', 'block')
 
-		shape_title = CssRule('.shape-title')
-		shape_title.add_declaration('fill', '#16a085')
+		title_color = CssRule('.colorful-color-title')
+		title_color.add_declaration('fill', '#16a085')
 
-		shape_boy = CssRule('.shape-boy')
-		shape_boy.add_declaration('fill', '#34495e')
+		boy_color = CssRule('.colorful-color-boy')
+		boy_color.add_declaration('fill', '#34495e')
 
-		shape_girl = CssRule('.shape-girl')
-		shape_girl.add_declaration('fill', '#c0392b')
+		girl_color = CssRule('.colorful-color-girl')
+		girl_color.add_declaration('fill', '#c0392b')
 
-		shape_both = CssRule('.shape-both')
-		shape_both.add_declaration('fill', '#27ae60')
+		both_color = CssRule('.colorful-color-both')
+		both_color.add_declaration('fill', '#27ae60')
 
-		shadow = CssRule('.shadow')
-		shadow.add_declaration('fill', '#000000')
-		shadow.add_declaration('fill-opacity', '.4')
+		shadow_color = CssRule('.shadow-color')
+		shadow_color.add_declaration('fill', '#000000')
+		shadow_color.add_declaration('fill-opacity', '.4')
 
-		title_show = CssRule('@keyframes title-show')
-		title_show.add_keyframe(0, 0)
-		title_show.add_keyframe(80, 0)
-		title_show.add_keyframe(100, 1100)
-
-		shadow_show = CssRule('@keyframes shadow-show')
-		shadow_show.add_keyframe(0, 0)
-		shadow_show.add_keyframe(100, 0)
-
-		title_song_name = CssRule('#title .song-name')
+		title_song_name = CssRule('#title-clip .song-name')
 		title_song_name.add_declaration('font-size', '80px')
 
-		title_credits = CssRule('#title .credits')
+		title_credits = CssRule('#title-clip .credits')
 		title_credits.add_declaration('font-size', '30px')
 
 		css_rules.append(whole)
 		css_rules.append(content)
 		css_rules.append(screen)
-		css_rules.append(shape_title)
-		css_rules.append(shape_boy)
-		css_rules.append(shape_girl)
-		css_rules.append(shape_both)
-		css_rules.append(shadow)
-		css_rules.append(title_show)
-		css_rules.append(shadow_show)
+		css_rules.append(title_color)
+		css_rules.append(boy_color)
+		css_rules.append(girl_color)
+		css_rules.append(both_color)
+		css_rules.append(shadow_color)
 		css_rules.append(title_song_name)
 		css_rules.append(title_credits)
 
@@ -93,27 +84,47 @@ class CssGenerator(generator.Generator):
 		return second_per_beat * num_beats
 
 
-	def _append_beats(self, css_rules):
-		self._append_title(css_rules)
-		self._append_shadow(css_rules)
-		self._append_shape_move(css_rules)
-		self._append_lyric_run(css_rules)
-
 
 	def _append_title(self, css_rules):
-		title = CssRule('.title')
+		self._append_colorful_title_timing(css_rules)
+		self._append_colorful_title_progress(css_rules)
+
+
+	def _append_beats(self, css_rules):
+		self._append_shadow_lyrics_timing(css_rules)
+		self._append_shadow_lyrics_progress(css_rules)
+		self._append_colorful_lyrics_timing(css_rules)
+		self._append_colorful_lyrics_progress(css_rules)
+
+
+	def _append_visions(self, css_rules):
+		self._append_colorful_visions_timing(css_rules)
+		self._append_colorful_visions_progress(css_rules)
+
+
+	def _append_colorful_title_timing(self, css_rules):
+		timing = CssRule('.colorful-title-timing')
 
 		delay_seconds = self._config.begin_time
 		duration_seconds = self._beats_to_seconds(self._NUM_TITLE_BEATS)
 
-		title.add_declaration('transform', 'translateX(-1200px)')
-		title.add_declaration('animation', 'title-show {}s'.format(duration_seconds))
-		title.add_declaration('animation-delay', '{}s'.format(delay_seconds))
+		timing.add_declaration('transform', 'translateX(-1200px)')
+		timing.add_declaration('animation', 'colorful-title-progress {}s'.format(duration_seconds))
+		timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
-		css_rules.append(title)
+		css_rules.append(timing)
 
 
-	def _append_shadow(self, css_rules):
+	def _append_colorful_title_progress(self, css_rules):
+		progress = CssRule('@keyframes colorful-title-progress')
+		progress.add_keyframe(0, 0)
+		progress.add_keyframe(80, 0)
+		progress.add_keyframe(100, 1100)
+
+		css_rules.append(progress)
+
+
+	def _append_shadow_lyrics_timing(self, css_rules):
 		delay_beats = 0
 
 		all_sections = []
@@ -169,44 +180,52 @@ class CssGenerator(generator.Generator):
 
 		for section in all_sections:
 			for line in section['lines']:
-				shadow = CssRule('.shadow-{}'.format(line['idx']))
+				shadow = CssRule('.shadow-lyrics-timing-{}'.format(line['idx']))
 
 				delay_seconds = self._config.begin_time + self._beats_to_seconds(line['delay'])
 				duration_seconds = self._beats_to_seconds(line['duration'])
 
 				shadow.add_declaration('transform', 'translateX(-1200px)')
-				shadow.add_declaration('animation', 'shadow-show {}s'.format(duration_seconds))
+				shadow.add_declaration('animation', 'shadow-lyrics-progress {}s'.format(duration_seconds))
 				shadow.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
 				css_rules.append(shadow)
 
 
-	def _append_shape_move(self, css_rules):
+	def _append_shadow_lyrics_progress(self, css_rules):
+		shadow_lyrics_progress = CssRule('@keyframes shadow-lyrics-progress')
+		shadow_lyrics_progress.add_keyframe(0, 0)
+		shadow_lyrics_progress.add_keyframe(100, 0)
+
+		css_rules.append(shadow_lyrics_progress)
+
+
+	def _append_colorful_lyrics_timing(self, css_rules):
 		delay_beats = 0
 		for idx, beat in enumerate(self._config.beats):
 			if beat['lyric'] is not None:
-				shape_move = CssRule('.shape-move-{}'.format(idx))
+				timing = CssRule('.colorful-lyrics-timing-{}'.format(idx))
 
 				delay_seconds = self._config.begin_time + self._beats_to_seconds(delay_beats)
 				duration_seconds = self._beats_to_seconds(sum(beat['beats']) + self._NUM_STAY_BEATS)
 
-				shape_move.add_declaration('transform', 'translateX(-1200px)')
-				shape_move.add_declaration('animation', 'lyric-run-{} {}s'.format(idx, duration_seconds))
-				shape_move.add_declaration('animation-delay', '{}s'.format(delay_seconds))
+				timing.add_declaration('transform', 'translateX(-1200px)')
+				timing.add_declaration('animation', 'colorful-lyrics-progress-{} {}s'.format(idx, duration_seconds))
+				timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
-				css_rules.append(shape_move)
+				css_rules.append(timing)
 
 			delay_beats += sum(beat['beats'])
 
 
-	def _append_lyric_run(self, css_rules):
+	def _append_colorful_lyrics_progress(self, css_rules):
 		for idx, beat in enumerate(self._config.beats):
 			if beat['lyric'] is None:
 				continue
 
 			percents_per_beat = 100.0 / (sum(beat['beats']) + self._NUM_STAY_BEATS)
 
-			lyric_run = CssRule('@keyframes lyric-run-{}'.format(idx))
+			progress = CssRule('@keyframes colorful-lyrics-progress-{}'.format(idx))
 
 			if beat['position'] == 'left':
 				cur_translate = -1100
@@ -215,16 +234,44 @@ class CssGenerator(generator.Generator):
 			else:
 				assert False
 
-			lyric_run.add_keyframe(0, cur_translate)
+			progress.add_keyframe(0, cur_translate)
 
 			cur_beats = 0
 			for beat_length in beat['beats']:
 				cur_beats += beat_length
 				cur_translate += self._CHAR_WIDTH
-				lyric_run.add_keyframe(percents_per_beat * cur_beats, cur_translate)
-			lyric_run.add_keyframe(100, cur_translate)
+				progress.add_keyframe(percents_per_beat * cur_beats, cur_translate)
+			progress.add_keyframe(100, cur_translate)
 
-			css_rules.append(lyric_run)
+			css_rules.append(progress)
+
+
+	def _append_colorful_visions_timing(self, css_rules):
+		delay_beats = 0
+		for idx, vision in enumerate(self._config.visions):
+			if vision['name'] is not None:
+				for jdx, component in enumerate(vision['components']):
+					delay_seconds = self._config.begin_time + self._beats_to_seconds(delay_beats)
+					duration_seconds = self._beats_to_seconds(vision['beat'])
+
+					timing = CssRule('.colorful-visions-timing-{}-{}'.format(idx, jdx))
+					timing.add_declaration('transform', 'translateX(-1200px)')
+					timing.add_declaration('animation', 'colorful-visions-progress {}s'.format(duration_seconds))
+					timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
+
+					css_rules.append(timing)
+
+			delay_beats += vision['beat']
+
+
+	def _append_colorful_visions_progress(self, css_rules):
+		progress = CssRule('@keyframes colorful-visions-progress')
+		progress.add_keyframe(0, -1200)
+		progress.add_keyframe(30, 0)
+		progress.add_keyframe(70, 0)
+		progress.add_keyframe(100, 1200)
+
+		css_rules.append(progress)
 
 
 	def _write_file(self, css_rules):
@@ -251,9 +298,9 @@ class CssRule(object):
 		self._declarations[property_] = value
 
 
-	def add_keyframe(self, progress, translate):
+	def add_keyframe(self, percent, translate):
 		assert self._is_keyframes
-		self._keyframes.append((progress, translate))
+		self._keyframes.append((percent, translate))
 
 
 	def to_string(self):
@@ -264,9 +311,9 @@ class CssRule(object):
 				rule_string += '\t{}: {};\n'.format(property_, value)
 		else:
 			for keyframe in self._keyframes:
-				progress = keyframe[0]
+				percent = keyframe[0]
 				translate = keyframe[1]
-				rule_string += '\t{}% {{\n'.format(progress)
+				rule_string += '\t{}% {{\n'.format(percent)
 				rule_string += '\t\ttransform: translateX({}px);\n'.format(translate)
 				rule_string += '\t}\n'
 
