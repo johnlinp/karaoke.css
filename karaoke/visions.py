@@ -23,6 +23,7 @@ class VisionsGenerator(generator.Generator):
 	def _generate_clip_paths(self, src_filename, dst_filename):
 		document = minidom.parse(src_filename)
 		self._rename_clip_paths(document)
+		self._ungroup_clip_paths(document)
 		self._dump_clip_paths(dst_filename, document)
 
 
@@ -43,6 +44,15 @@ class VisionsGenerator(generator.Generator):
 			clip_path.setAttribute('id', layer_name)
 
 
+	def _ungroup_clip_paths(self, document):
+		clip_paths = document.getElementsByTagName('clipPath')
+
+		for clip_path in clip_paths:
+			non_groups = self._get_non_groups(clip_path)
+			self._clear_children(clip_path)
+			self._fill_children(clip_path, non_groups)
+
+
 	def _get_clip_path_id(self, layer):
 		children = layer.getElementsByTagName('*')
 		first_child = children[0]
@@ -60,6 +70,25 @@ class VisionsGenerator(generator.Generator):
 			if clip_path.getAttribute('id') == id_:
 				return clip_path
 		return None
+
+
+	def _get_non_groups(self, dom):
+		non_groups = []
+		childrens = dom.getElementsByTagName('*')
+		for child in childrens:
+			if child.tagName != 'g':
+				non_groups.append(child)
+		return non_groups
+
+
+	def _clear_children(self, dom):
+		while dom.firstChild:
+			dom.removeChild(dom.firstChild)
+
+
+	def _fill_children(self, dom, children):
+		for child in children:
+			dom.appendChild(child)
 
 
 	def _dump_clip_paths(self, dst_filename, document):
