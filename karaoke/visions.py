@@ -1,7 +1,8 @@
 # -*- coding: utf8 -*-
 
+import re
 import os
-import shutil
+from xml.dom import minidom
 import generator
 
 class VisionsGenerator(generator.Generator):
@@ -13,7 +14,55 @@ class VisionsGenerator(generator.Generator):
 			if vision['name'] is None:
 				continue
 
-			src_filename = os.path.join(self._config.visions_dir_name, '{}.svg'.format(vision['name']))
-			dst_dirname = os.path.join(self._config.output_dir_name, 'visions')
-			shutil.copy(src_filename, dst_dirname)
+			basename = '{}.svg'.format(vision['name'])
+			src_filename = os.path.join(self._config.visions_dir_name, basename)
+			dst_filename = os.path.join(self._config.output_dir_name, 'visions', basename)
+			self._generate_clip_paths(src_filename, dst_filename)
+
+
+	def _generate_clip_paths(self, src_filename, dst_filename):
+		document = minidom.parse(src_filename)
+		self._rename_clip_paths(document)
+		self._dump_clip_paths(dst_filename, document)
+
+
+	def _rename_clip_paths(self, document):
+		# clipPath id -> layer name
+		mapping = {}
+
+		groups = document.getElementsByTagName('g')
+		for group in groups:
+			layer_name = group.getAttribute('inkscape:label')
+			if not layer_name: # not a layer
+				continue
+			clip_path_id = self._get_clip_path_id(group)
+			mapping[clip_path_id] = layer_name
+
+		for clip_path_id, layer_name in mapping.items():
+			clip_path = self._get_clip_path_by_id(clip_path_id, document)
+			clip_path.setAttribute('id', layer_name)
+
+
+	def _get_clip_path_id(self, layer):
+		children = layer.getElementsByTagName('*')
+		first_child = children[0]
+
+		clip_path_url = first_child.getAttribute('clip-path')
+		match = re.match(r'url\(#(.*)\)', clip_path_url)
+		clip_path_id = match.group(1)
+
+		return clip_path_id
+
+
+	def _get_clip_path_by_id(self, id_, document):
+		clip_paths = document.getElementsByTagName('clipPath')
+		for clip_path in clip_paths:
+			if clip_path.getAttribute('id') == id_:
+				return clip_path
+		return None
+
+
+	def _dump_clip_paths(self, dst_filename, document):
+		with open(dst_filename, 'w') as writer:
+			writer.write(document.toxml())
 
