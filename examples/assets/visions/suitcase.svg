@@ -62,40 +62,6 @@
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath3063">
-      <g
-         id="g3065">
-        <rect
-           style="color:#000000;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           id="rect3067"
-           width="127.18105"
-           height="176.47658"
-           x="600.94421"
-           y="-8.8360214"
-           transform="matrix(0.98634588,0.16468701,-0.27264631,0.96211433,0,0)"
-           ry="17.331581"
-           rx="10.808165"
-           clip-path="none" />
-        <rect
-           transform="matrix(0.60992012,0.7924629,-0.79596199,0.6053466,0,0)"
-           y="-497.63272"
-           x="491.11072"
-           height="20.429197"
-           width="32.059956"
-           id="rect3069"
-           style="color:#000000;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-        <rect
-           transform="matrix(0.52110627,0.8534918,-0.85838651,0.51300351,0,0)"
-           y="-357.29144"
-           x="474.82855"
-           height="20.333292"
-           width="32.212074"
-           id="rect3071"
-           style="color:#000000;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-      </g>
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
        id="clipPath3076">
       <path
          inkscape:connector-curvature="0"
@@ -194,6 +160,51 @@
            transform="matrix(0.97715459,0.21252976,-0.21252976,0.97715459,0,0)" />
       </g>
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3139">
+      <g
+         id="g3141">
+        <rect
+           clip-path="none"
+           rx="10.808165"
+           ry="17.331581"
+           transform="matrix(0.98634588,0.16468701,-0.27264631,0.96211433,0,0)"
+           y="-8.8360214"
+           x="600.94421"
+           height="176.47658"
+           width="127.18105"
+           id="rect3143"
+           style="color:#000000;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+        <rect
+           style="color:#000000;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+           id="rect3145"
+           width="32.059956"
+           height="20.429197"
+           x="491.11072"
+           y="-497.63272"
+           transform="matrix(0.60992012,0.7924629,-0.79596199,0.6053466,0,0)" />
+        <rect
+           style="color:#000000;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+           id="rect3147"
+           width="32.212074"
+           height="20.333292"
+           x="474.82855"
+           y="-357.29144"
+           transform="matrix(0.52110627,0.8534918,-0.85838651,0.51300351,0,0)" />
+        <rect
+           clip-path="none"
+           rx="10.808165"
+           ry="17.331581"
+           transform="matrix(0.98634588,0.16468701,-0.27264631,0.96211433,0,0)"
+           y="-28.891584"
+           x="579.91028"
+           height="176.47658"
+           width="127.18106"
+           id="rect3149"
+           style="color:#000000;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      </g>
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -202,11 +213,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="581.92643"
-     inkscape:cy="210.45624"
+     inkscape:zoom="1.4"
+     inkscape:cx="582.28562"
+     inkscape:cy="159.49517"
      inkscape:document-units="px"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1360"
      inkscape:window-height="744"
@@ -287,7 +298,7 @@
        y="2.8571429"
        rx="7.6746912"
        ry="7.6746912"
-       clip-path="url(#clipPath3063)" />
+       clip-path="url(#clipPath3139)" />
   </g>
   <g
      inkscape:label="face"

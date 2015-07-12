@@ -27,7 +27,7 @@ class CssGenerator(generator.Generator):
 		# the width of a character in pixel
 		self._CHAR_WIDTH = 60
 		# the time span between each vision component in seconds
-		self._BETWEEN_VISION_COMPONENT = 0.2
+		self._BETWEEN_VISION_COMPONENT = 0.8
 
 
 	def _append_general(self, css_rules):
@@ -257,7 +257,7 @@ class CssGenerator(generator.Generator):
 					duration_seconds = self._beats_to_seconds(vision['beat']) - self._BETWEEN_VISION_COMPONENT * jdx * 2
 
 					timing = CssRule('.colorful-visions-timing-{}-{}'.format(idx, jdx))
-					timing.add_declaration('transform', 'translateX(-1200px)')
+					timing.add_declaration('transform', 'translateX(-1300px)')
 					timing.add_declaration('animation', 'colorful-visions-progress {}s'.format(duration_seconds))
 					timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
@@ -268,7 +268,7 @@ class CssGenerator(generator.Generator):
 
 	def _append_colorful_visions_progress(self, css_rules):
 		progress = CssRule('@keyframes colorful-visions-progress')
-		progress.add_keyframe(0, -1200)
+		progress.add_keyframe(0, -1300)
 		progress.add_keyframe(30, 0)
 		progress.add_keyframe(70, 0)
 		progress.add_keyframe(100, 1200)
