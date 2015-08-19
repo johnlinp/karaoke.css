@@ -1,4 +1,6 @@
+import os
 import re
+from xml.dom import minidom
 
 class Config(object):
 	def __init__(self, filename):
@@ -57,7 +59,7 @@ class Config(object):
 
 		position = 'left'
 		for line in beats:
-			lyric, beats = self._parse_labeld_beats(line)
+			lyric, beats = self._parse_labeled_beats(line)
 			beat = {}
 			beat['lyric'] = lyric
 			beat['beats'] = beats
@@ -77,20 +79,49 @@ class Config(object):
 
 	def _read_visions(self, visions):
 		self.visions = []
+		self._read_visions_basic(visions)
+		self._read_visions_components(visions)
 
+
+	def _read_visions_basic(self, visions):
+		curr_beat = 0
 		for line in visions:
-			is_main_vision = not self._is_sub_vision(line)
-			if is_main_vision:
-				name, beats = self._parse_labeld_beats(line)
-				curr = {
-					'name': name,
-					'beat': beats[0],
-					'components': [],
-				}
-				self.visions.append(curr)
+			if line == 'clear':
+				for vision in self.visions:
+					if vision['end'] == -1:
+						vision['end'] = curr_beat
 			else:
-				color, id_ = self._parse_sub_vision(line)
-				curr['components'].append({'color': color, 'id': id_})
+				name, beats = self._parse_labeled_beats(line)
+				if name is not None:
+					self.visions.append({
+						'name': name,
+						'start': curr_beat,
+						'end': -1,
+						'components': [],
+					})
+				curr_beat += beats[0]
+
+
+	def _read_visions_components(self, visions):
+		for vision in self.visions:
+			basename = '{}.svg'.format(vision['name'])
+			src_filename = os.path.join(self.visions_dir_name, basename)
+			document = minidom.parse(src_filename)
+			groups = document.getElementsByTagName('g')
+			for group in groups:
+				layer_name = group.getAttribute('inkscape:label')
+				if not layer_name: # not a layer
+					continue
+				rects = group.getElementsByTagName('rect')
+				if not rects:
+					continue
+				rect = rects[0]
+				style = rect.getAttribute('style')
+				color = re.search('fill:#([0-9a-f]+)', style).group(1)
+				vision['components'].append({
+					'id': layer_name,
+					'color': color,
+				})
 
 
 	def _validate(self):
@@ -114,7 +145,7 @@ class Config(object):
 		return key, value
 
 
-	def _parse_labeld_beats(self, line):
+	def _parse_labeled_beats(self, line):
 		match = re.match(r'^\s*(\S+)\s*(.*?)\s*$', line)
 		if not match:
 			raise Exception('Invalid config beats format: {}'.format(line))
@@ -131,21 +162,8 @@ class Config(object):
 		return lyric, beats
 
 
-	def _parse_sub_vision(self, line):
-		match = re.match(r'^\s*-\s*(\S+)\s*(\S+)\s*$', line)
-		if not match:
-			raise Exception('Invalid config beats format: {}'.format(line))
-		color = match.group(1)
-		id_ = match.group(2)
-		return color, id_
-
-
 	def _is_meta_label(self, label):
 		return label.startswith('[') and label.endswith(']')
-
-
-	def _is_sub_vision(self, line):
-		return line.startswith('-')
 
 
 	def _get_settings_types(self):

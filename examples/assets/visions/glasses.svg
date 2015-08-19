@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="suitcase.svg">
+   sodipodi:docname="glasses.svg">
   <defs
      id="defs4">
     <clipPath
@@ -62,6 +62,15 @@
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
+       id="clipPath3076">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3078"
+         d="m 688.84234,82.568542 -8.90892,4.098282 -9.97328,19.969656 11.89358,5.32291 10.00889,-21.065457 z"
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
        id="clipPath3061">
       <g
          id="g3063">
@@ -105,6 +114,23 @@
            sodipodi:ry="7.5"
            d="m 38.571428,180.71428 a 6.4285712,7.5 0 1 1 -12.857143,0 6.4285712,7.5 0 1 1 12.857143,0 z"
            transform="matrix(1.2575296,0,0,1.3172269,621.599,46.066775)" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3035">
+      <g
+         id="g3037">
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:none"
+           d="m 571.80088,94.290214 4.23237,-14.184616 c 0,0 5.44161,-14.184617 21.16183,-10.960838 15.72022,3.223775 15.72022,3.223775 15.72022,3.223775 z"
+           id="path3039"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:#808080;fill-opacity:1;stroke:none"
+           d="m 698.98147,114.02514 3.83734,-14.801194 c 0,0 3.28916,-10.963844 -10.96385,-13.704805 -14.25299,-2.740961 -21.92768,-3.289153 -21.92768,-3.289153 z"
+           id="path3041"
+           inkscape:connector-curvature="0" />
       </g>
     </clipPath>
     <clipPath
@@ -181,28 +207,67 @@
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath3794">
-      <path
-         style="fill:#4d4d4d;fill-opacity:1;stroke:none"
-         d="m 688.84234,82.568542 -8.90892,4.098282 -9.97328,19.969656 11.89358,5.32291 10.00889,-21.065457 z"
-         id="path3796"
-         inkscape:connector-curvature="0" />
+       id="clipPath3983">
+      <g
+         id="g3985">
+        <path
+           style="fill:#000000;fill-opacity:1;stroke:none;display:inline"
+           d="m 291.80176,242.19439 c 0,0 2.13397,-23.1179 35.21034,-19.91696 33.07638,3.20094 22.40658,20.27262 22.40658,20.27262 0,0 -3.91226,13.51508 -23.47356,18.49432 -19.56129,4.97924 -30.25428,-2.23077 -32.72071,-7.46886 -2.67949,-5.69056 -1.49664,-11.38112 -1.42265,-11.38112 z"
+           id="path3987"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscssc" />
+        <path
+           style="fill:#000000;fill-opacity:1;stroke:none;display:inline"
+           d="m 427.96703,240.9756 c 0,0 -2.13396,-23.1179 -35.21034,-19.91696 -33.07637,3.20094 -22.40658,20.27261 -22.40658,20.27261 0,0 3.91226,13.51508 23.47356,18.49432 19.5613,4.97924 30.25428,-2.23076 32.72072,-7.46886 2.67948,-5.69055 1.49664,-11.38111 1.42264,-11.38111 z"
+           id="path3989"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscssc" />
+      </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath3801">
+       id="clipPath4002">
       <g
-         id="g3803">
+         id="g4004">
         <path
-           inkscape:connector-curvature="0"
-           id="path3805"
-           d="m 571.80088,94.290214 4.23237,-14.184616 c 0,0 5.44161,-14.184617 21.16183,-10.960838 15.72022,3.223775 15.72022,3.223775 15.72022,3.223775 z"
-           style="fill:#808080;fill-opacity:1;stroke:none" />
+           style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+           d="m 294.4531,235.48423 -5.78426,-1.00596 1.00596,7.79618 4.27532,-1.50894 z"
+           id="path4006"
+           inkscape:connector-curvature="0" />
         <path
+           style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+           d="m 425.47916,234.47827 5.78427,-1.00596 -1.00596,7.79618 -4.27533,-1.50894 z"
+           id="path4008"
+           inkscape:connector-curvature="0" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4013">
+      <path
+         sodipodi:nodetypes="ccsccsc"
+         inkscape:connector-curvature="0"
+         id="path4015"
+         d="m 343.87238,230.62796 0,6.04622 c 0,0 5.69055,-1.7783 15.29337,-1.7783 9.60282,0 16.36036,1.60047 16.36036,1.60047 l 0.0889,-5.60164 c 0,0 -7.20211,0.71132 -16.44927,0.71132 -9.24716,0 -15.29337,-0.97807 -15.29337,-0.97807 z"
+         style="fill:#808080;fill-opacity:1;stroke:none;display:inline" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4044">
+      <g
+         id="g4046">
+        <path
+           style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+           d="m 429.55688,234.93945 56.83664,-52.30983 c 0,0 6.79022,-7.2932 21.8796,-3.01787 15.08937,4.27532 -0.75447,3.52085 -0.75447,3.52085 l -8.55065,-1.00596 c 0,0 -4.84119,-0.0773 -7.79617,0.75447 -6.87505,1.93522 -43.92336,46.37139 -59.60413,56.5422 -2.71864,1.61694 -4.4811,-0.48651 -4.58648,-2.05415 -0.0886,-1.31762 2.33456,-0.58125 2.57566,-2.42971 z"
+           id="path4048"
            inkscape:connector-curvature="0"
-           id="path3807"
-           d="m 698.98147,114.02514 3.83734,-14.801194 c 0,0 3.28916,-10.963844 -10.96385,-13.704805 -14.25299,-2.740961 -21.92768,-3.289153 -21.92768,-3.289153 z"
-           style="fill:#808080;fill-opacity:1;stroke:none" />
+           sodipodi:nodetypes="ccsccscsc" />
+        <path
+           style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+           d="m 292.12992,233.976 56.83664,-52.30983 c 0,0 6.79021,-7.2932 21.87959,-3.01787 15.08938,4.27532 -0.75447,3.52085 -0.75447,3.52085 l -8.55064,-1.00596 c 0,0 -4.84119,-0.0773 -7.79618,0.75447 -6.87505,1.93521 -43.92335,46.37138 -59.60412,56.5422 -2.71864,1.61694 -4.48111,-0.48651 -4.58649,-2.05415 -0.0886,-1.31762 2.33456,-0.58126 2.57567,-2.42971 z"
+           id="path4050"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccsccscsc" />
       </g>
     </clipPath>
   </defs>
@@ -213,11 +278,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="450.14276"
-     inkscape:cy="159.49517"
+     inkscape:zoom="2.8"
+     inkscape:cx="399.89789"
+     inkscape:cy="101.34319"
      inkscape:document-units="px"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer4"
      showgrid="false"
      inkscape:window-width="1360"
      inkscape:window-height="744"
@@ -239,129 +304,65 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="wheels"
+     inkscape:label="temples"
+     style="display:inline">
+    <rect
+       style="fill:#34495e;fill-opacity:1;stroke:none;display:inline"
+       id="rect4074"
+       width="285.91223"
+       height="128.97128"
+       x="252.40103"
+       y="135.15721"
+       rx="25.820684"
+       ry="16.753988"
+       clip-path="url(#clipPath4044)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="bridge"
      style="display:inline">
     <rect
        style="fill:#7f8c8d;fill-opacity:1;stroke:none"
-       id="rect3051"
-       width="279.28571"
-       height="82.14286"
-       x="454.28571"
-       y="233.57143"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3061)" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer6"
-     inkscape:label="sticks"
-     style="display:inline">
-    <rect
-       style="fill:#ecf0f1;fill-opacity:1;stroke:none"
-       id="rect3053"
-       width="147.14285"
-       height="132.5"
-       x="606.42859"
-       y="-2.5000002"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3056)" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="handle"
-     style="display:inline">
-    <rect
-       style="fill:#2c3e50;fill-opacity:1;stroke:none"
-       id="rect3042"
-       width="161.78572"
-       height="84.285713"
-       x="593.57141"
-       y="-31.428572"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3045)" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="body"
-     style="display:inline">
-    <rect
-       style="fill:#8e44ad;fill-opacity:1;stroke:none"
-       id="rect3035"
-       width="328.57144"
-       height="304.28571"
-       x="480"
-       y="2.8571429"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3139)" />
-  </g>
-  <g
-     inkscape:label="face"
-     inkscape:groupmode="layer"
-     id="layer1"
-     style="display:inline">
-    <rect
-       style="fill:#9b59b6;fill-opacity:1;stroke:none"
-       id="rect3025"
-       width="282.85715"
-       height="279.28571"
-       x="477.14285"
-       y="12.857142"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3025)" />
+       id="rect4011"
+       width="73.214287"
+       height="41.785713"
+       x="327.85715"
+       y="213.21428"
+       rx="25.820684"
+       ry="16.753988"
+       clip-path="url(#clipPath4013)" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="mark"
-     style="display:inline">
-    <rect
-       style="fill:#f39c12;fill-opacity:1;stroke:none"
-       id="rect3052"
-       width="190.71428"
-       height="112.85714"
-       x="528.57141"
-       y="57.142857"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3055)" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer7"
-     inkscape:label="corner"
+     inkscape:label="hinge"
      style="display:inline">
     <rect
        style="fill:#bdc3c7;fill-opacity:1;stroke:none"
-       id="rect3033"
-       width="236.07143"
-       height="108.92857"
-       x="531.78571"
-       y="37.857143"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3801)" />
+       id="rect4000"
+       width="178.57143"
+       height="58.57143"
+       x="273.21429"
+       y="208.92857"
+       rx="25.820684"
+       ry="16.753988"
+       clip-path="url(#clipPath4002)" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer8"
-     inkscape:label="label"
+     id="layer2"
+     inkscape:label="lens"
      style="display:inline">
     <rect
-       style="fill:#e67e22;fill-opacity:1;stroke:none"
-       id="rect3074"
-       width="98.571426"
-       height="99.285713"
-       x="625.71429"
-       y="46.42857"
-       rx="7.6746912"
-       ry="7.6746912"
-       clip-path="url(#clipPath3794)" />
+       style="fill:#2c3e50;fill-opacity:1;stroke:none"
+       id="rect3981"
+       width="167.85715"
+       height="88.571426"
+       x="278.92856"
+       y="198.92857"
+       rx="25.820684"
+       ry="16.753988"
+       clip-path="url(#clipPath3983)" />
   </g>
 </svg>

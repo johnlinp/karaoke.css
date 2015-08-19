@@ -200,7 +200,7 @@ class HtmlGenerator(generator.Generator):
 	def _grow_visions_block_tree(self, filename, component, vision_idx, component_idx):
 		block = HtmlDom('g')
 		block.set_attr('clip-path', 'url({}#{})'.format(filename, component['id']))
-		block.set_attr('transform', 'translate(0, 250)')
+		block.set_attr('transform', 'translate(0, 150)')
 
 		rect = HtmlDom('rect')
 		rect.set_attr('width', '100%')

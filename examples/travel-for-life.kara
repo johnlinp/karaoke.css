@@ -54,17 +54,20 @@ begin-time: 4.37
 
 [title]       5
 
-suitcase      24
-- ecf0f1  sticks
-- 7f8c8d  wheels
-- 2c3e50  handle
-- 8e44ad  body
-- 9b59b6  face
-- f39c12  mark
-- bdc3c7  corner
-- e67e22  label
+suitcase      8
+glasses       16
+polaroid      8
 
-#sunglasses    4
-#- 34495e  lens-right
-#- 34495e  lens-left
-#- 7f8c8d  temples
+clear
+
+hotel         8
+frige         8
+key           8
+home          8
+
+clear
+
+flower        32
+
+clear
+

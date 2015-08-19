@@ -249,21 +249,17 @@ class CssGenerator(generator.Generator):
 
 
 	def _append_colorful_visions_timing(self, css_rules):
-		delay_beats = 0
 		for idx, vision in enumerate(self._config.visions):
-			if vision['name'] is not None:
-				for jdx, component in enumerate(vision['components']):
-					delay_seconds = self._config.begin_time + self._beats_to_seconds(delay_beats) + self._BETWEEN_VISION_COMPONENT * jdx
-					duration_seconds = self._beats_to_seconds(vision['beat']) - self._BETWEEN_VISION_COMPONENT * jdx * 2
+			for jdx, component in enumerate(vision['components']):
+				delay_seconds = self._config.begin_time + self._beats_to_seconds(vision['start']) + self._BETWEEN_VISION_COMPONENT * jdx
+				duration_seconds = self._beats_to_seconds(vision['end'] - vision['start']) - self._BETWEEN_VISION_COMPONENT * jdx * 2
 
-					timing = CssRule('.colorful-visions-timing-{}-{}'.format(idx, jdx))
-					timing.add_declaration('transform', 'translateX(-1300px)')
-					timing.add_declaration('animation', 'colorful-visions-progress {}s'.format(duration_seconds))
-					timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
+				timing = CssRule('.colorful-visions-timing-{}-{}'.format(idx, jdx))
+				timing.add_declaration('transform', 'translateX(-1300px)')
+				timing.add_declaration('animation', 'colorful-visions-progress {}s'.format(duration_seconds))
+				timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
-					css_rules.append(timing)
-
-			delay_beats += vision['beat']
+				css_rules.append(timing)
 
 
 	def _append_colorful_visions_progress(self, css_rules):
