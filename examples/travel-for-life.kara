@@ -8,7 +8,7 @@ lyric-writer: 未婚夫
 melody-writer: 未婚夫
 
 # the audio file
-audio-filename: ./examples/assets/audio/metal.ogg
+audio-filename: ./examples/assets/audio/rock.ogg
 
 # output directory
 output-dir-name: ./travel-for-life
@@ -20,7 +20,7 @@ visions-dir-name: ./examples/assets/visions
 beat-per-minute: 55
 
 # the begin time of the song, in seconds
-begin-time: 4.37
+begin-time: 4.77
 
 =====
 
@@ -37,7 +37,7 @@ begin-time: 4.37
 拿著拍立得    0.25, 0.5, 0.75, 0.5, 1
 我們走        0.25, 0.5, 4.25
 
-我訂的飯店    0.75, 0.75, 0.5, 0.75, 1
+我們的飯店    0.75, 0.75, 0.5, 0.75, 1
 比五星級更好  0.25, 0.5, 0.25, 0.75, 0.5, 2
 冰箱的東西    0.75, 0.75, 0.5, 0.75, 1.25
 隨便吃到飽    0.5, 0.25, 0.75, 0.5, 2
@@ -46,7 +46,21 @@ begin-time: 4.37
 因為那裡是    0.25, 0.5, 0.75, 0.5, 1
 我們家        0.25, 0.5, 4.25
 
-[proposal]    8
+[proposal]    32
+
+各地的語言    0.75, 0.75, 0.5, 0.75, 1.25
+都不簡單      0.75, 0.75, 0.25, 2.25
+你會說什麼    0.75, 0.75, 0.5, 0.75, 1.25
+我聽聽看      0.75, 0.75, 0.25, 2.25
+愛我你        1.5, 2.5, 4
+原來你記得    0.25, 0.5, 0.75, 0.5, 1
+我愛你        0.25, 0.5, 4.25
+你願不願意    0.25, 0.5, 0.75, 0.5, 1
+去旅行        0.25, 0.5, 4.25
+我這一輩子    0.25, 0.5, 0.75, 0.5, 1
+都願意        0.25, 0.5, 4.25
+我這一輩子    0.25, 0.5, 0.75, 0.5, 1
+都願意        0.25, 0.5, 1
 
 =====
 
