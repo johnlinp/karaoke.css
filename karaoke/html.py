@@ -72,8 +72,8 @@ class HtmlGenerator(generator.Generator):
 				continue
 
 			clippath = self._grow_lyrics_clippath_tree(idx, beat)
-			shape = self._grow_lyrics_block_tree('shape', idx)
-			shadow = self._grow_lyrics_block_tree('shadow', idx)
+			shape = self._grow_lyrics_block_tree('shape', idx, beat['singer'])
+			shadow = self._grow_lyrics_block_tree('shadow', idx, None)
 
 			screen.append_child(clippath)
 			screen.append_child(shape)
@@ -177,7 +177,7 @@ class HtmlGenerator(generator.Generator):
 		return block
 
 
-	def _grow_lyrics_block_tree(self, which, idx):
+	def _grow_lyrics_block_tree(self, which, idx, singer):
 		block = HtmlDom('g')
 		block.set_attr('clip-path', 'url(#lyric-clip-{})'.format(idx))
 
@@ -186,7 +186,7 @@ class HtmlGenerator(generator.Generator):
 		rect.set_attr('height', '100%')
 
 		if which == 'shape':
-			rect.set_attr('class', 'colorful-lyrics-timing-{} colorful-color-boy'.format(idx))
+			rect.set_attr('class', 'colorful-lyrics-timing-{} colorful-color-{}'.format(idx, singer))
 		elif which == 'shadow':
 			rect.set_attr('class', 'shadow-lyrics-timing-{} shadow-color'.format(idx))
 		else:

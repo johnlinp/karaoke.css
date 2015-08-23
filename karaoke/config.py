@@ -1,6 +1,9 @@
 import os
 import re
+import pprint
 from xml.dom import minidom
+
+DEBUG = False
 
 class Config(object):
 	def __init__(self, filename):
@@ -53,14 +56,18 @@ class Config(object):
 			key, value = self._parse_key_value(line)
 			setattr(self, key, value)
 
+			if DEBUG:
+				print('{}: {}'.format(key, value))
+
 
 	def _read_beats(self, beats):
 		self.beats = []
 
 		position = 'left'
 		for line in beats:
-			lyric, beats = self._parse_labeled_beats(line)
+			singer, lyric, beats = self._parse_lyrics_beats(line)
 			beat = {}
+			beat['singer'] = singer
 			beat['lyric'] = lyric
 			beat['beats'] = beats
 			if lyric is None:
@@ -76,11 +83,17 @@ class Config(object):
 
 			self.beats.append(beat)
 
+			if DEBUG:
+				pprint.pprint(beat)
+
 
 	def _read_visions(self, visions):
 		self.visions = []
 		self._read_visions_basic(visions)
 		self._read_visions_components(visions)
+
+		if DEBUG:
+			pprint.pprint(self.visions)
 
 
 	def _read_visions_basic(self, visions):
@@ -91,7 +104,7 @@ class Config(object):
 					if vision['end'] == -1:
 						vision['end'] = curr_beat
 			else:
-				name, beats = self._parse_labeled_beats(line)
+				name, beat = self._parse_visions_beats(line)
 				if name is not None:
 					self.visions.append({
 						'name': name,
@@ -99,7 +112,7 @@ class Config(object):
 						'end': -1,
 						'components': [],
 					})
-				curr_beat += beats[0]
+				curr_beat += beat
 
 
 	def _read_visions_components(self, visions):
@@ -145,25 +158,58 @@ class Config(object):
 		return key, value
 
 
-	def _parse_labeled_beats(self, line):
-		match = re.match(r'^\s*(\S+)\s*(.*?)\s*$', line)
+	def _parse_lyrics_beats(self, line):
+		match = re.match(r'^\s*((\S)\s+)*(\S+)\s*(.*?)\s*$', line)
 		if not match:
 			raise Exception('Invalid config beats format: {}'.format(line))
 
-		lyric = match.group(1)
+		singer = match.group(2)
+		if singer:
+			singer = self._get_singer_name(singer)
+
+		lyric = match.group(3)
 		if self._is_meta_label(lyric):
 			lyric = None
 
-		beats = match.group(2)
+		beats = match.group(4)
 		beats = beats.split(',')
 		beats = [beat.strip() for beat in beats]
 		beats = [float(beat) for beat in beats]
 
-		return lyric, beats
+		return singer, lyric, beats
+
+
+	def _parse_visions_beats(self, line):
+		match = re.match(r'^\s*(\S+)\s*(\S*)\s*$', line)
+		if not match:
+			raise Exception('Invalid config beats format: {}'.format(line))
+
+		name = match.group(1)
+		if self._is_meta_label(name):
+			name = None
+
+		beat = match.group(2)
+		beat = float(beat)
+
+		return name, beat
 
 
 	def _is_meta_label(self, label):
 		return label.startswith('[') and label.endswith(']')
+
+
+	def _get_singer_name(self, singer_symbol):
+		mapping = {
+			'+': 'boy',
+			'-': 'girl',
+			'*': 'both',
+		}
+
+		if singer_symbol not in mapping:
+			raise Exception('No such singer symbol: {}'.format(singer_symbol))
+
+		singer_name = mapping[singer_symbol]
+		return singer_name
 
 
 	def _get_settings_types(self):
