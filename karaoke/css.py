@@ -119,9 +119,9 @@ class CssGenerator(generator.Generator):
 
 	def _append_colorful_title_progress(self, css_rules):
 		progress = CssRule('@keyframes colorful-title-progress')
-		progress.add_keyframe(0, 0)
-		progress.add_keyframe(80, 0)
-		progress.add_keyframe(100, 1100)
+		progress.add_keyframe(0, 'transform', 'translate(0)')
+		progress.add_keyframe(80, 'transform', 'translate(0)')
+		progress.add_keyframe(100, 'transform', 'translate(1100)')
 
 		css_rules.append(progress)
 
@@ -196,8 +196,8 @@ class CssGenerator(generator.Generator):
 
 	def _append_shadow_lyrics_progress(self, css_rules):
 		shadow_lyrics_progress = CssRule('@keyframes shadow-lyrics-progress')
-		shadow_lyrics_progress.add_keyframe(0, 0)
-		shadow_lyrics_progress.add_keyframe(100, 0)
+		shadow_lyrics_progress.add_keyframe(0, 'transform', 'translate(0)')
+		shadow_lyrics_progress.add_keyframe(100, 'transform', 'translate(0)')
 
 		css_rules.append(shadow_lyrics_progress)
 
@@ -236,14 +236,14 @@ class CssGenerator(generator.Generator):
 			else:
 				assert False
 
-			progress.add_keyframe(0, cur_translate)
+			progress.add_keyframe(0, 'transform', 'translate({}px)'.format(cur_translate))
 
 			cur_beats = 0
 			for beat_length in beat['beats']:
 				cur_beats += beat_length
 				cur_translate += self._CHAR_WIDTH
-				progress.add_keyframe(percents_per_beat * cur_beats, cur_translate)
-			progress.add_keyframe(100, cur_translate)
+				progress.add_keyframe(percents_per_beat * cur_beats, 'transform', 'translate({}px)'.format(cur_translate))
+			progress.add_keyframe(100, 'transform', 'translate({}px)'.format(cur_translate))
 
 			css_rules.append(progress)
 
@@ -255,7 +255,7 @@ class CssGenerator(generator.Generator):
 				duration_seconds = self._beats_to_seconds(vision['end'] - vision['start']) - self._BETWEEN_VISION_COMPONENT * jdx * 2
 
 				timing = CssRule('.colorful-visions-timing-{}-{}'.format(idx, jdx))
-				timing.add_declaration('transform', 'translateX(-1300px)')
+				timing.add_declaration('opacity', '0')
 				timing.add_declaration('animation', 'colorful-visions-progress {}s'.format(duration_seconds))
 				timing.add_declaration('animation-delay', '{}s'.format(delay_seconds))
 
@@ -264,10 +264,10 @@ class CssGenerator(generator.Generator):
 
 	def _append_colorful_visions_progress(self, css_rules):
 		progress = CssRule('@keyframes colorful-visions-progress')
-		progress.add_keyframe(0, -1300)
-		progress.add_keyframe(30, 0)
-		progress.add_keyframe(70, 0)
-		progress.add_keyframe(100, 1200)
+		progress.add_keyframe(0, 'opacity', '0')
+		progress.add_keyframe(1, 'opacity', '1')
+		progress.add_keyframe(99, 'opacity', '1')
+		progress.add_keyframe(100, 'opacity', '0')
 
 		css_rules.append(progress)
 
@@ -296,9 +296,9 @@ class CssRule(object):
 		self._declarations[property_] = value
 
 
-	def add_keyframe(self, percent, translate):
+	def add_keyframe(self, percent, property_, value):
 		assert self._is_keyframes
-		self._keyframes.append((percent, translate))
+		self._keyframes.append((percent, property_, value))
 
 
 	def to_string(self):
@@ -310,9 +310,10 @@ class CssRule(object):
 		else:
 			for keyframe in self._keyframes:
 				percent = keyframe[0]
-				translate = keyframe[1]
+				property_ = keyframe[1]
+				value = keyframe[2]
 				rule_string += '\t{}% {{\n'.format(percent)
-				rule_string += '\t\ttransform: translateX({}px);\n'.format(translate)
+				rule_string += '\t\t{}: {};\n'.format(property_, value)
 				rule_string += '\t}\n'
 
 		rule_string += '}\n\n'
