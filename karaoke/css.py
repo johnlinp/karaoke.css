@@ -27,7 +27,7 @@ class CssGenerator(generator.Generator):
 		# the width of a character in pixel
 		self._CHAR_WIDTH = 60
 		# the time span between each vision component in seconds
-		self._BETWEEN_VISION_COMPONENT = 0.8
+		self._BETWEEN_VISION_COMPONENT = 0.4
 
 
 	def _append_general(self, css_rules):

@@ -14,7 +14,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="home.svg">
+   sodipodi:docname="instant.svg"
+   enable-background="new">
   <defs
      id="defs4">
     <clipPath
@@ -277,7 +278,7 @@
        clipPathUnits="userSpaceOnUse"
        id="clipPath3028">
       <path
-         transform="translate(-394.96965,-19.192897)"
+         transform="translate(148.49242,8.0812213)"
          d="m 783.87835,164.13448 a 85.862968,58.083771 0 1 1 -171.72594,0 85.862968,58.083771 0 1 1 171.72594,0 z"
          sodipodi:ry="58.083771"
          sodipodi:rx="85.862968"
@@ -287,6 +288,146 @@
          style="fill:#bdc3c7;fill-opacity:1;stroke:none"
          sodipodi:type="arc" />
     </clipPath>
+    <filter
+       inkscape:collect="always"
+       id="filter3847">
+      <feBlend
+         inkscape:collect="always"
+         mode="darken"
+         in2="BackgroundImage"
+         id="feBlend3849" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3877">
+      <path
+         sodipodi:nodetypes="cccsccsc"
+         inkscape:connector-curvature="0"
+         id="path3879"
+         d="m 798.78739,127.40779 57.33142,2.79656 12.93815,4.5774 c 0,0 2.87216,5.76809 -0.43376,47.28015 -3.06072,38.43318 -11.71159,47.71391 -11.71159,47.71391 -29.76325,0.78885 -63.82053,-1.79619 -82.8487,-8.67526 0,0 -7.47619,-59.61026 9.10902,-82.41493 10.41031,-14.31417 15.61546,-11.27783 15.61546,-11.27783 z"
+         style="fill:#666666;stroke:none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3908">
+      <path
+         sodipodi:nodetypes="ccccsc"
+         inkscape:connector-curvature="0"
+         id="path3910"
+         d="m 798.78739,127.40779 57.33142,2.79656 c 5.98286,31.47796 5.35674,68.23619 -1.66996,94.91809 -29.98013,2.95766 -61.35777,2.85718 -80.38594,-4.02189 0,0 -7.47619,-59.61026 9.10902,-82.41493 10.41031,-14.31417 15.61546,-11.27783 15.61546,-11.27783 z"
+         style="fill:#4d4d4d;stroke:none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3924">
+      <path
+         d="m 775.79718,151.50757 a 56.568542,52.527931 0 1 1 -113.13708,0 56.568542,52.527931 0 1 1 113.13708,0 z"
+         sodipodi:ry="52.527931"
+         sodipodi:rx="56.568542"
+         sodipodi:cy="151.50757"
+         sodipodi:cx="719.22864"
+         id="path3926"
+         style="fill:#1a1a1a;stroke:none;display:inline"
+         sodipodi:type="arc"
+         transform="matrix(0.47798471,0,0,0.50145203,476.14397,110.03057)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3934">
+      <rect
+         style="fill:#808080;fill-opacity:1;stroke:none"
+         id="rect3936"
+         width="9.07374"
+         height="17.80876"
+         x="829.39233"
+         y="-117.40517"
+         rx="2.1908643"
+         ry="2.4150374"
+         transform="matrix(0.9540581,0.29962168,-0.11217476,0.99368849,0,0)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3939">
+      <path
+         d="m 637.14285,120 a 12.857142,12.857142 0 1 1 -25.71429,0 12.857142,12.857142 0 1 1 25.71429,0 z"
+         sodipodi:ry="12.857142"
+         sodipodi:rx="12.857142"
+         sodipodi:cy="120"
+         sodipodi:cx="624.28571"
+         id="path3941"
+         style="fill:#333333;fill-opacity:1;stroke:none"
+         sodipodi:type="arc"
+         transform="matrix(0.42940327,0,0,0.42940327,517.27533,118.30534)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3944">
+      <rect
+         transform="matrix(0.96752191,0.25278717,0,1,0,0)"
+         ry="0.71248645"
+         rx="0.56464982"
+         y="-59.43539"
+         x="808.80579"
+         height="9.6694593"
+         width="6.4531398"
+         id="rect3946"
+         style="fill:#333333;fill-opacity:1;stroke:none;display:inline" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3949">
+      <path
+         d="m 775.79718,151.50757 a 56.568542,52.527931 0 1 1 -113.13708,0 56.568542,52.527931 0 1 1 113.13708,0 z"
+         sodipodi:ry="52.527931"
+         sodipodi:rx="56.568542"
+         sodipodi:cy="151.50757"
+         sodipodi:cx="719.22864"
+         id="path3951"
+         style="fill:#808080;stroke:none;display:inline"
+         sodipodi:type="arc"
+         transform="matrix(0.36702397,0,0,0.3850435,555.9501,127.66734)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3954">
+      <path
+         d="m 775.79718,151.50757 a 56.568542,52.527931 0 1 1 -113.13708,0 56.568542,52.527931 0 1 1 113.13708,0 z"
+         sodipodi:ry="52.527931"
+         sodipodi:rx="56.568542"
+         sodipodi:cy="151.50757"
+         sodipodi:cx="719.22864"
+         id="path3956"
+         style="fill:#b3b3b3;stroke:none;display:inline"
+         sodipodi:type="arc"
+         transform="matrix(0.16217338,0,0,0.12949584,703.28452,166.38474)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3074">
+      <g
+         id="g3076">
+        <path
+           transform="matrix(0.47798471,0,0,0.50145203,482.42085,117.12217)"
+           sodipodi:type="arc"
+           style="fill:#4d4d4d;stroke:none;display:inline"
+           id="path3079"
+           sodipodi:cx="719.22864"
+           sodipodi:cy="151.50757"
+           sodipodi:rx="56.568542"
+           sodipodi:ry="52.527931"
+           d="m 775.79718,151.50757 a 56.568542,52.527931 0 1 1 -113.13708,0 56.568542,52.527931 0 1 1 113.13708,0 z" />
+        <path
+           transform="matrix(0.47798471,0,0,0.50145203,476.14396,110.03057)"
+           sodipodi:type="arc"
+           style="fill:#4d4d4d;stroke:none;display:inline"
+           id="path3081"
+           sodipodi:cx="719.22864"
+           sodipodi:cy="151.50757"
+           sodipodi:rx="56.568542"
+           sodipodi:ry="52.527931"
+           d="m 775.79718,151.50757 a 56.568542,52.527931 0 1 1 -113.13708,0 56.568542,52.527931 0 1 1 113.13708,0 z" />
+      </g>
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -295,17 +436,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="538.54804"
-     inkscape:cy="165.30907"
+     inkscape:zoom="2.8"
+     inkscape:cx="756.52604"
+     inkscape:cy="102.06402"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="1360"
      inkscape:window-height="744"
      inkscape:window-x="0"
      inkscape:window-y="24"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -321,17 +464,145 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="pistil"
+     inkscape:label="body"
+     style="display:inline;filter:url(#filter3847)">
+    <rect
+       style="fill:#c0dde5;fill-opacity:1;stroke:none"
+       id="rect3875"
+       width="152.5"
+       height="136.07143"
+       x="741.78571"
+       y="102.85714"
+       rx="1.7728343"
+       ry="2.5369844"
+       clip-path="url(#clipPath3877)" />
+  </g>
+  <g
+     style="display:inline;filter:url(#filter3847)"
+     inkscape:label="face"
+     id="g3972"
+     inkscape:groupmode="layer">
+    <rect
+       style="fill:#aed3de;fill-opacity:1;stroke:none;display:inline;filter:url(#filter3847)"
+       id="rect3820-6"
+       width="148.14413"
+       height="119.61949"
+       x="743.42792"
+       y="120.54739"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3908)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="focus-body"
+     style="display:inline">
+    <rect
+       style="fill:#8ac0cf;fill-opacity:1;stroke:none"
+       id="rect3826"
+       width="122.07321"
+       height="94.775436"
+       x="764.97192"
+       y="140.85526"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3074)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="outer-focus"
+     style="display:inline">
+    <rect
+       style="fill:#7cacba;fill-opacity:1;stroke:none"
+       id="rect3856"
+       width="94.162003"
+       height="74.532135"
+       x="769.36676"
+       y="147.54843"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3924)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="inner-focus"
+     style="display:inline">
+    <rect
+       style="fill:#6e99a5;fill-opacity:1;stroke:none"
+       id="rect3862"
+       width="121.7665"
+       height="75.452286"
+       x="754.3418"
+       y="147.7964"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3949)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="lens"
      style="display:inline">
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none"
-       id="rect3033"
-       width="330.31989"
-       height="192.93913"
-       x="160.61426"
-       y="51.502472"
-       rx="50.35714"
-       ry="32.674694"
-       clip-path="url(#clipPath3028)" />
+       id="rect3868"
+       width="96.922447"
+       height="53.061974"
+       x="774.46765"
+       y="159.86752"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3954)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="flash"
+     style="display:inline">
+    <rect
+       style="fill:#e9ddaf;fill-opacity:1;stroke:none"
+       id="rect3874"
+       width="65.023926"
+       height="47.541077"
+       x="775.4845"
+       y="118.76334"
+       rx="2.1908643"
+       ry="2.4150374"
+       clip-path="url(#clipPath3934)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="shutter"
+     style="display:inline">
+    <rect
+       style="fill:#7cacba;fill-opacity:1;stroke:none"
+       id="rect3905"
+       width="81.893333"
+       height="52.448544"
+       x="743.90094"
+       y="143.92242"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3939)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="view"
+     style="display:inline">
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect3899"
+       width="50.301529"
+       height="39.566444"
+       x="759.84192"
+       y="133.47742"
+       rx="0.56464982"
+       ry="0.71248645"
+       clip-path="url(#clipPath3944)" />
   </g>
 </svg>

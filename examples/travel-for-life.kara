@@ -66,18 +66,17 @@ begin-time: 4.77
 
 # the vision part
 
-[title]       5
+[title]       8
 
-suitcase      8
-glasses       16
-polaroid      8
+suitcase      16
+glasses       12
+instant       12
 
 clear
 
 hotel         8
 frige         8
-key           8
-home          8
+key           16
 
 clear
 
@@ -85,3 +84,23 @@ flower        32
 
 clear
 
+okinawa       4
+switzerland   4
+france        4
+australia     4
+
+clear
+
+amis-girl     4
+amis-boy      12
+
+clear
+
+suitcase-you  8
+suitcase-me   16
+
+clear
+
+ring          32
+
+clear
